@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 from datetime import datetime, timedelta, timezone
 from typing import Any
 
@@ -53,6 +54,19 @@ class ConsentService:
         Validates that the chosen channel has the required contact information
         (phone for SMS, email for EMAIL).
         """
+        # Chaos mode — set CHAOS_MODE=true in .env to simulate a critical outage
+        if os.getenv("CHAOS_MODE", "false").lower() == "true":
+            logger.error(
+                "chaos_mode_triggered",
+                service="consent-api",
+                endpoint="POST /api/v1/consents",
+                error="ResourceNotFoundException: DynamoDB table 'cms-consents' not found",
+            )
+            raise RuntimeError(
+                "DynamoDB table 'cms-consents' not found: ResourceNotFoundException. "
+                "All consent creation requests are failing. Data loss in progress."
+            )
+
         # Channel validation
         if request.channel == ConsentChannel.SMS and not request.customer_phone:
             raise ValueError("customer_phone is required for SMS channel")

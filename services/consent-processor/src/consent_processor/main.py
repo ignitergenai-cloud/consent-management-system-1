@@ -20,6 +20,7 @@ from cms_shared.aws.sns import SNSPublisher
 from cms_shared.middleware.correlation import CorrelationIdMiddleware
 from cms_shared.middleware.error_handler import register_exception_handlers
 from cms_shared.middleware.logging_config import setup_logging
+from cms_shared.middleware.newrelic import NewRelicLoggingMiddleware
 
 from consent_processor import __version__
 from consent_processor.config import ConsentProcessorSettings
@@ -149,10 +150,11 @@ def create_app() -> FastAPI:
         allow_methods=["*"],
         allow_headers=["*"],
     )
-    app.add_middleware(CorrelationIdMiddleware)
+    
+    app.add_middleware(NewRelicLoggingMiddleware, service_name="consent-processor")
 
     # Error handlers
-    register_exception_handlers(app)
+    register_exception_handlers(app, service_name="consent-processor")
 
     # Routers
     app.include_router(health.router, tags=["health"])

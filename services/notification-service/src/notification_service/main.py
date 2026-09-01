@@ -16,6 +16,7 @@ from cms_shared.middleware import (
     register_exception_handlers,
     setup_logging,
 )
+from cms_shared.middleware.newrelic import NewRelicLoggingMiddleware
 
 from notification_service import __version__
 from notification_service.config import NotificationServiceSettings
@@ -123,10 +124,11 @@ def create_app() -> FastAPI:
     )
 
     # Add correlation ID middleware
-    app.add_middleware(CorrelationIdMiddleware)
+    
+    app.add_middleware(NewRelicLoggingMiddleware, service_name="notification-service")
 
     # Register exception handlers
-    register_exception_handlers(app)
+    register_exception_handlers(app, service_name="notification-service")
 
     # Include routers
     app.include_router(health.router, tags=["health"])

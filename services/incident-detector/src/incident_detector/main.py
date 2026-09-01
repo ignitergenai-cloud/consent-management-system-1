@@ -14,6 +14,7 @@ from cms_shared.aws.sns import SNSPublisher
 from cms_shared.middleware.correlation import CorrelationIdMiddleware
 from cms_shared.middleware.error_handler import register_exception_handlers
 from cms_shared.middleware.logging_config import setup_logging
+from cms_shared.middleware.newrelic import NewRelicLoggingMiddleware
 
 from incident_detector.config import IncidentDetectorSettings
 from incident_detector.consumers.consent_events_consumer import ConsentEventsConsumer
@@ -142,8 +143,9 @@ def create_app() -> FastAPI:
     )
 
     # Middleware
-    app.add_middleware(CorrelationIdMiddleware)
-    register_exception_handlers(app)
+    
+    app.add_middleware(NewRelicLoggingMiddleware, service_name="incident-detector")
+    register_exception_handlers(app, service_name="incident-detector")
 
     # Routers
     app.include_router(health.router, prefix="/api/v1")

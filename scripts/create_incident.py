@@ -36,7 +36,7 @@ LOKI_USERNAME     = os.getenv("LOKI_USERNAME",      "")   # numeric user ID from
 LOKI_API_KEY      = os.getenv("LOKI_API_KEY",       "")   # Grafana Cloud API key (glc_...)
 
 # New Relic Log API (alternative — requires License/Ingest key, not NRAK- key)
-NR_LICENSE_KEY    = os.getenv("NR_LICENSE_KEY",     "")   # starts with license key format
+NR_LICENSE_KEY    = os.getenv("NR_LICENSE_KEY",     "350ed5b6c2fb675958bb75486c57c570679dNRAL")
 NR_LOG_ENDPOINT   = os.getenv("NR_LOG_ENDPOINT",    "https://log-api.newrelic.com/log/v1")
 
 # ---------------------------------------------------------------------------
