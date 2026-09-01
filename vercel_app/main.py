@@ -18,7 +18,7 @@ from vercel_app.config import UnifiedSettings
 from vercel_app.db import SupabaseDB
 from vercel_app.email import send_email
 from vercel_app.cron_routes import router as cron_router
-from vercel_app.observability import ObservabilityMiddleware, register_exception_handlers
+from vercel_app.observability import ObservabilityMiddleware, register_exception_handlers, fire_pd_incident
 
 logger = structlog.get_logger()
 
@@ -192,13 +192,23 @@ async def create_consent(body: CreateConsentRequest, request: Request):
     cfg = _settings(request)
 
     if cfg.chaos_mode:
+        error_msg = "Supabase table 'consents' not found"
         logger.error(
             "chaos_mode_triggered",
             service="cms-unified",
             endpoint="POST /api/v1/consents",
-            error="Supabase table 'consents' not found",
+            error=error_msg,
         )
-        raise HTTPException(500, "Supabase table 'consents' not found. All consent creation requests are failing.")
+        import threading, traceback
+        ui_page = request.headers.get("x-ui-page") or None
+        ui_action = request.headers.get("x-ui-action") or None
+        ui_route = request.headers.get("x-ui-route") or None
+        threading.Thread(
+            target=fire_pd_incident,
+            args=(cfg, "cms-unified", "/api/v1/consents", error_msg, "chaos_mode=True", ui_page, ui_action, ui_route),
+            daemon=True,
+        ).start()
+        raise HTTPException(500, f"{error_msg}. All consent creation requests are failing.")
 
     if body.channel == "EMAIL" and not body.customer_email:
         raise HTTPException(400, "customer_email required for EMAIL channel")

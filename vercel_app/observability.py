@@ -46,7 +46,7 @@ def _send_to_newrelic(license_key: str, payload: list[dict]) -> None:
         pass
 
 
-def _fire_pd_incident(
+def fire_pd_incident(
     cfg: "UnifiedSettings",
     service: str,
     path: str,
@@ -224,17 +224,6 @@ def register_exception_handlers(app, service_name: str = "cms-unified") -> None:
             ui_page=ui_page,
             ui_action=ui_action,
         )
-
-        try:
-            cfg = request.app.state.settings
-            import threading
-            threading.Thread(
-                target=_fire_pd_incident,
-                args=(cfg, service_name, request.url.path, str(exc), tb, ui_page, ui_action, ui_route),
-                daemon=True,
-            ).start()
-        except Exception:
-            pass
 
         return JSONResponse(
             status_code=500,
