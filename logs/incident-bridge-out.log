@@ -1,0 +1,14 @@
+{"version": "0.1.0", "event": "Starting incident-bridge service", "service": "incident-bridge", "logger": "lifespan", "level": "info", "timestamp": "2026-08-30T09:50:31.836719Z"}
+Found credentials in environment variables.
+{"event": "SNS publisher started", "service": "incident-bridge", "logger": "cms_shared.aws.sns", "level": "info", "timestamp": "2026-08-30T09:50:32.009321Z"}
+Found credentials in environment variables.
+{"queue_url": "http://localhost:4566/000000000000/cms-incident-bridge-queue", "event": "SQS consumer started", "service": "incident-bridge", "logger": "cms_shared.aws.sqs", "level": "info", "timestamp": "2026-08-30T09:50:32.153272Z"}
+Found credentials in environment variables.
+{"queue_url": "http://localhost:4566/000000000000/cms-incident-commands-queue", "event": "SQS consumer started", "service": "incident-bridge", "logger": "cms_shared.aws.sqs", "level": "info", "timestamp": "2026-08-30T09:50:32.317734Z"}
+{"event": "Incident-bridge service started successfully", "service": "incident-bridge", "logger": "lifespan", "level": "info", "timestamp": "2026-08-30T09:50:32.317734Z"}
+{"queue_url": "http://localhost:4566/000000000000/cms-incident-bridge-queue", "event": "SQS consumer polling started", "service": "incident-bridge", "logger": "cms_shared.aws.sqs", "level": "info", "timestamp": "2026-08-30T09:50:32.317734Z"}
+{"queue_url": "http://localhost:4566/000000000000/cms-incident-commands-queue", "event": "SQS consumer polling started", "service": "incident-bridge", "logger": "cms_shared.aws.sqs", "level": "info", "timestamp": "2026-08-30T09:50:32.565058Z"}
+INFO:     127.0.0.1:49297 - "GET /api/v1/health HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49297 - "GET / HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49328 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49863 - "GET /docs HTTP/1.1" 200 OK

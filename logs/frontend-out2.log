@@ -1,0 +1,13 @@
+
+> cms-frontend@0.1.0 dev
+> vite
+
+Port 3000 is in use, trying another one...
+
+  VITE v6.4.3  ready in 374 ms
+
+  ➜  Local:   http://localhost:3001/
+  ➜  Network: use --host to expose
+3:46:54 PM [vite] .env changed, restarting server...
+3:46:54 PM [vite] server restarted.
+Terminate batch job (Y/N)? 

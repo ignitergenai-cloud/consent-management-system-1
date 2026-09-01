@@ -1,0 +1,23 @@
+replicaCount: 1
+
+image:
+  repository: cms/incident-bridge
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8004
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 64Mi
+  limits:
+    cpu: 200m
+    memory: 256Mi
+
+healthCheck:
+  path: /api/v1/health
+  readyPath: /api/v1/health/ready
+  port: 8004

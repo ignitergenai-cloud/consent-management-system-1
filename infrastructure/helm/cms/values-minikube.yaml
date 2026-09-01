@@ -1,0 +1,7 @@
+ingress:
+  className: nginx
+  host: cms.local
+
+floci:
+  persistence:
+    storageClass: standard

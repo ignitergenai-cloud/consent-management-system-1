@@ -1,0 +1,28 @@
+apiVersion: v2
+name: cms
+description: Consent Management System Helm Chart
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+dependencies:
+  - name: consent-api
+    version: 0.1.0
+    condition: consent-api.enabled
+  - name: notification-service
+    version: 0.1.0
+    condition: notification-service.enabled
+  - name: consent-processor
+    version: 0.1.0
+    condition: consent-processor.enabled
+  - name: incident-detector
+    version: 0.1.0
+    condition: incident-detector.enabled
+  - name: incident-bridge
+    version: 0.1.0
+    condition: incident-bridge.enabled
+  - name: frontend
+    version: 0.1.0
+    condition: frontend.enabled
+  - name: floci
+    version: 0.1.0
+    condition: floci.enabled

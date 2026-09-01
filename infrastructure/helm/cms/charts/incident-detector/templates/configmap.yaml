@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "incident-detector.fullname" . }}-config
+  labels:
+    {{- include "incident-detector.labels" . | nindent 4 }}
+data:
+  AWS_ENDPOINT_URL: {{ .Values.global.aws.endpointUrl | quote }}
+  AWS_DEFAULT_REGION: {{ .Values.global.aws.region | quote }}
+  DYNAMODB_TABLE_NAME: {{ .Values.global.dynamodb.tableName | quote }}
+  INCIDENT_FAILURE_RATE_THRESHOLD: {{ .Values.incidentDetection.failureRateThreshold | quote }}
+  INCIDENT_DETECTION_INTERVAL_SECONDS: {{ .Values.incidentDetection.detectionIntervalSeconds | quote }}
+  INCIDENT_DETECTION_WINDOW_MINUTES: {{ .Values.incidentDetection.detectionWindowMinutes | quote }}

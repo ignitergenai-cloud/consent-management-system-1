@@ -1,0 +1,447 @@
+{"port": 8000, "event": "starting_consent_api", "service": "consent-api", "logger": "consent_api.main", "level": "info", "timestamp": "2026-08-30T09:50:31.822569Z"}
+Found credentials in environment variables.
+{"table": "cms-consents", "event": "DynamoDB manager started", "service": "consent-api", "logger": "cms_shared.aws.dynamodb", "level": "info", "timestamp": "2026-08-30T09:50:32.096632Z"}
+Found credentials in environment variables.
+{"event": "SNS publisher started", "service": "consent-api", "logger": "cms_shared.aws.sns", "level": "info", "timestamp": "2026-08-30T09:50:32.235785Z"}
+Found credentials in environment variables.
+{"queue_url": "http://localhost:4566/000000000000/cms-internal-commands-queue", "event": "SQS consumer started", "service": "consent-api", "logger": "cms_shared.aws.sqs", "level": "info", "timestamp": "2026-08-30T09:50:32.371049Z"}
+{"event": "consent_api_started", "service": "consent-api", "logger": "consent_api.main", "level": "info", "timestamp": "2026-08-30T09:50:32.374049Z"}
+{"queue_url": "http://localhost:4566/000000000000/cms-internal-commands-queue", "event": "SQS consumer polling started", "service": "consent-api", "logger": "cms_shared.aws.sqs", "level": "info", "timestamp": "2026-08-30T09:50:32.374049Z"}
+INFO:     127.0.0.1:49269 - "GET /api/v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49846 - "GET /api/v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65374 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65374 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54546 - "OPTIONS /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60173 - "OPTIONS /api/v1/analytics/consents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54383 - "OPTIONS /api/v1/incidents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54383 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60173 - "GET /api/v1/analytics/consents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54546 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54546 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61585 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61585 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61585 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61585 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62897 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62897 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57113 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49938 - "GET /api/v1/analytics/consents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50739 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50739 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:64959 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:64959 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55047 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55047 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:64396 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64396 - "GET /api/v1/analytics/consents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53155 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:53155 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55184 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55184 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57444 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50477 - "GET /api/v1/analytics/consents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55140 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57444 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55140 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50477 - "GET /api/v1/analytics/consents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50477 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58685 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49691 - "GET /api/v1/analytics/consents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51735 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50703 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61318 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59703 - "GET /api/v1/analytics/consents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55290 - "OPTIONS /api/v1/consents?page=1&page_size=25 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55290 - "GET /api/v1/consents?page=1&page_size=25 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61245 - "GET /api/v1/consents?page=1&page_size=25 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50653 - "GET /api/v1/analytics/consents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50653 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61245 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61245 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52057 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52057 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52057 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52057 - "GET /api/v1/analytics/consents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52057 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52057 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50779 - "GET /api/v1/analytics/consents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50779 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49246 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49246 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55512 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55512 - "GET /api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:53643 - "GET /api/v1/api/v1/consents?page=1&page_size=10 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:53645 - "GET /api/v1/api/v1/analytics/consents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:53647 - "GET /api/v1/api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60103 - "GET /api/v1/api/v1/consents?page=1&page_size=10 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60106 - "GET /api/v1/api/v1/analytics/consents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60107 - "GET /api/v1/api/v1/incidents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56033 - "GET /api/v1/consents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57238 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57240 - "GET /api/v1/analytics/consents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64744 - "GET /api/v1/analytics/consents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64746 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56112 - "GET /api/v1/analytics/consents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56110 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60790 - "GET /api/v1/consents?page=1&page_size=25 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53384 - "GET /api/v1/analytics/consents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53381 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+{"error": "customer_phone is required for SMS channel", "event": "Validation error", "logger": "cms_shared.middleware.error_handler", "level": "warning", "timestamp": "2026-08-30T10:19:34.977254Z", "correlation_id": "a0900f80-5376-4a9a-ad52-4cc71ad7b56e"}
+INFO:     127.0.0.1:57185 - "POST /api/v1/consents HTTP/1.1" 400 Bad Request
+{"error": "customer_phone is required for SMS channel", "event": "Validation error", "logger": "cms_shared.middleware.error_handler", "level": "warning", "timestamp": "2026-08-30T10:20:03.280511Z", "correlation_id": "992e80d2-ca28-440e-b6bd-7b462502e87e"}
+INFO:     127.0.0.1:52132 - "POST /api/v1/consents HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:61012 - "GET /api/v1/consents?page=1&page_size=25 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56299 - "GET /api/v1/consents?page=1&page_size=25 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65193 - "GET /api/v1/consents?page=1&page_size=25 HTTP/1.1" 200 OK
+{"consent_id": "482cc4b3-4d23-4c31-aea1-062c7054d912", "customer_id": "12345", "channel": "SMS", "event": "creating_consent", "logger": "consent_api.services.consent_service", "level": "info", "timestamp": "2026-08-30T10:23:37.405437Z", "correlation_id": "19f47566-8af4-47ce-9578-b1632339bcb7"}
+{"consent_id": "482cc4b3-4d23-4c31-aea1-062c7054d912", "customer_id": "12345", "event": "creating_consent", "logger": "consent_api.repositories.consent_repository", "level": "info", "timestamp": "2026-08-30T10:23:37.411017Z", "correlation_id": "19f47566-8af4-47ce-9578-b1632339bcb7"}
+{"consent_id": "482cc4b3-4d23-4c31-aea1-062c7054d912", "action": "CREATED", "event": "adding_history_entry", "logger": "consent_api.repositories.consent_repository", "level": "info", "timestamp": "2026-08-30T10:23:37.423636Z", "correlation_id": "19f47566-8af4-47ce-9578-b1632339bcb7"}
+{"error": "An error occurred (NotFound) when calling the Publish operation: Endpoint does not exist", "exc_info": true, "event": "Unhandled exception", "logger": "cms_shared.middleware.error_handler", "level": "error", "timestamp": "2026-08-30T10:23:38.355177Z", "correlation_id": "19f47566-8af4-47ce-9578-b1632339bcb7"}
+  + Exception Group Traceback (most recent call last):
+  |   File "C:\Program Files\Python312\Lib\site-packages\starlette\_utils.py", line 76, in collapse_excgroups
+  |     yield
+  |   File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\base.py", line 178, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Program Files\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 772, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\base.py", line 177, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |                                    ^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Program Files\Python312\Lib\contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\_utils.py", line 82, in collapse_excgroups
+    |     raise exc
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\base.py", line 179, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Project\consent-management-system\services\shared\src\cms_shared\middleware\correlation.py", line 26, in dispatch
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\base.py", line 154, in call_next
+    |     raise app_exc
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\base.py", line 141, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    |     await self.simple_response(scope, receive, send, request_headers=headers)
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    |     await self.app(scope, receive, send)
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\routing.py", line 715, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\routing.py", line 735, in app
+    |     await route.handle(scope, receive, send)
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\routing.py", line 76, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\routing.py", line 73, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "C:\Program Files\Python312\Lib\site-packages\fastapi\routing.py", line 301, in app
+    |     raw_response = await run_endpoint_function(
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Program Files\Python312\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    |     return await dependant.call(**values)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Project\consent-management-system\services\consent-api\src\consent_api\routers\consents.py", line 40, in create_consent
+    |     return await service.create_consent(request)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Project\consent-management-system\services\consent-api\src\consent_api\services\consent_service.py", line 118, in create_consent
+    |     await self._sns.publish_event(
+    |   File "C:\Project\consent-management-system\services\shared\src\cms_shared\aws\sns.py", line 60, in publish_event
+    |     response = await self._client.publish(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\GenAICHNSIRUSR124\AppData\Roaming\Python\Python312\site-packages\aiobotocore\context.py", line 36, in wrapper
+    |     return await func(*args, **kwargs)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\GenAICHNSIRUSR124\AppData\Roaming\Python\Python312\site-packages\aiobotocore\client.py", line 424, in _make_api_call
+    |     raise error_class(parsed_response, operation_name)
+    | botocore.errorfactory.NotFoundException: An error occurred (NotFound) when calling the Publish operation: Endpoint does not exist
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\base.py", line 177, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\_utils.py", line 82, in collapse_excgroups
+    raise exc
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\base.py", line 179, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Project\consent-management-system\services\shared\src\cms_shared\middleware\correlation.py", line 26, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\base.py", line 154, in call_next
+    raise app_exc
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\base.py", line 141, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Project\consent-management-system\services\consent-api\src\consent_api\routers\consents.py", line 40, in create_consent
+    return await service.create_consent(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Project\consent-management-system\services\consent-api\src\consent_api\services\consent_service.py", line 118, in create_consent
+    await self._sns.publish_event(
+  File "C:\Project\consent-management-system\services\shared\src\cms_shared\aws\sns.py", line 60, in publish_event
+    response = await self._client.publish(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GenAICHNSIRUSR124\AppData\Roaming\Python\Python312\site-packages\aiobotocore\context.py", line 36, in wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GenAICHNSIRUSR124\AppData\Roaming\Python\Python312\site-packages\aiobotocore\client.py", line 424, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.NotFoundException: An error occurred (NotFound) when calling the Publish operation: Endpoint does not exist
+INFO:     127.0.0.1:55905 - "POST /api/v1/consents HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:53941 - "GET /api/v1/consents?page=1&page_size=25 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59506 - "GET /api/v1/consents?page=1&page_size=25 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58630 - "GET /api/v1/analytics/consents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58628 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53650 - "GET /api/v1/analytics/consents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53649 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50055 - "GET /api/v1/consents?page=1&page_size=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56009 - "GET /api/v1/consents?page_size=5 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50465 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50466 - "GET /api/v1/analytics/consents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54208 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54209 - "GET /api/v1/analytics/consents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60695 - "GET /api/v1/consents?page=1&page_size=25 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64063 - "GET /api/v1/analytics/consents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64062 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54766 - "GET /api/v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51005 - "GET /api/v1/analytics/consents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52833 - "GET /api/v1/consents?page=1&page_size=25 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49733 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51181 - "GET /api/v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57307 - "GET /api/v1/analytics/consents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57306 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58460 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58457 - "GET /api/v1/analytics/consents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49676 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49673 - "GET /api/v1/analytics/consents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51199 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51198 - "GET /api/v1/analytics/consents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57760 - "GET /api/v1/analytics/consents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57758 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53722 - "GET /api/v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61136 - "GET /api/v1/analytics/consents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54538 - "GET /api/v1/consents?page=1&page_size=25 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64823 - "GET /api/v1/consents?page=1&page_size=25&customer_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56153 - "GET /api/v1/consents?page=1&page_size=25&customer_id=11 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55682 - "GET /api/v1/consents?page=1&page_size=25&customer_id=12 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58089 - "GET /api/v1/consents?page=1&page_size=25&customer_id=123 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63933 - "GET /api/v1/consents?page=1&page_size=25&customer_id=1234 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57846 - "GET /api/v1/consents?page=1&page_size=25&customer_id=12345 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57153 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60744 - "POST /api/v1/consents/482cc4b3-4d23-4c31-aea1-062c7054d912/revoke HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60724 - "POST /api/v1/consents/482cc4b3-4d23-4c31-aea1-062c7054d912/revoke HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56083 - "POST /api/v1/consents/482cc4b3-4d23-4c31-aea1-062c7054d912/revoke HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:54032 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53129 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58910 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60790 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62298 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53217 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58517 - "GET /api/v1/consents?page=1&page_size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56414 - "GET /api/v1/consents?page=1&page_size=25 HTTP/1.1" 200 OK
+{"consent_id": "482cc4b3-4d23-4c31-aea1-062c7054d912", "event": "revoking_consent", "logger": "consent_api.services.consent_service", "level": "info", "timestamp": "2026-08-30T12:51:18.096618Z", "correlation_id": "fb3a787d-e0e3-41ad-a3ba-81e65ddc648f"}
+{"consent_id": "482cc4b3-4d23-4c31-aea1-062c7054d912", "fields": ["status", "updated_at"], "event": "updating_consent", "logger": "consent_api.repositories.consent_repository", "level": "info", "timestamp": "2026-08-30T12:51:18.098934Z", "correlation_id": "fb3a787d-e0e3-41ad-a3ba-81e65ddc648f"}
+{"consent_id": "482cc4b3-4d23-4c31-aea1-062c7054d912", "action": "REVOKED", "event": "adding_history_entry", "logger": "consent_api.repositories.consent_repository", "level": "info", "timestamp": "2026-08-30T12:51:18.366787Z", "correlation_id": "fb3a787d-e0e3-41ad-a3ba-81e65ddc648f"}
+{"error": "An error occurred (NotFound) when calling the Publish operation: Endpoint does not exist", "exc_info": true, "event": "Unhandled exception", "logger": "cms_shared.middleware.error_handler", "level": "error", "timestamp": "2026-08-30T12:51:18.632526Z", "correlation_id": "fb3a787d-e0e3-41ad-a3ba-81e65ddc648f"}
+  + Exception Group Traceback (most recent call last):
+  |   File "C:\Program Files\Python312\Lib\site-packages\starlette\_utils.py", line 76, in collapse_excgroups
+  |     yield
+  |   File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\base.py", line 178, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Program Files\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 772, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\base.py", line 177, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |                                    ^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Program Files\Python312\Lib\contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\_utils.py", line 82, in collapse_excgroups
+    |     raise exc
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\base.py", line 179, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Project\consent-management-system\services\shared\src\cms_shared\middleware\correlation.py", line 26, in dispatch
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\base.py", line 154, in call_next
+    |     raise app_exc
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\base.py", line 141, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    |     await self.simple_response(scope, receive, send, request_headers=headers)
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    |     await self.app(scope, receive, send)
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\routing.py", line 715, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\routing.py", line 735, in app
+    |     await route.handle(scope, receive, send)
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\routing.py", line 76, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "C:\Program Files\Python312\Lib\site-packages\starlette\routing.py", line 73, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "C:\Program Files\Python312\Lib\site-packages\fastapi\routing.py", line 301, in app
+    |     raw_response = await run_endpoint_function(
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Program Files\Python312\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    |     return await dependant.call(**values)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Project\consent-management-system\services\consent-api\src\consent_api\routers\consents.py", line 88, in revoke_consent
+    |     return await service.revoke_consent(consent_id)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Project\consent-management-system\services\consent-api\src\consent_api\services\consent_service.py", line 178, in revoke_consent
+    |     await self._sns.publish_event(
+    |   File "C:\Project\consent-management-system\services\shared\src\cms_shared\aws\sns.py", line 60, in publish_event
+    |     response = await self._client.publish(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\GenAICHNSIRUSR124\AppData\Roaming\Python\Python312\site-packages\aiobotocore\context.py", line 36, in wrapper
+    |     return await func(*args, **kwargs)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\GenAICHNSIRUSR124\AppData\Roaming\Python\Python312\site-packages\aiobotocore\client.py", line 424, in _make_api_call
+    |     raise error_class(parsed_response, operation_name)
+    | botocore.errorfactory.NotFoundException: An error occurred (NotFound) when calling the Publish operation: Endpoint does not exist
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\base.py", line 177, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\_utils.py", line 82, in collapse_excgroups
+    raise exc
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\base.py", line 179, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Project\consent-management-system\services\shared\src\cms_shared\middleware\correlation.py", line 26, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\base.py", line 154, in call_next
+    raise app_exc
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\base.py", line 141, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Program Files\Python312\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Project\consent-management-system\services\consent-api\src\consent_api\routers\consents.py", line 88, in revoke_consent
+    return await service.revoke_consent(consent_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Project\consent-management-system\services\consent-api\src\consent_api\services\consent_service.py", line 178, in revoke_consent
+    await self._sns.publish_event(
+  File "C:\Project\consent-management-system\services\shared\src\cms_shared\aws\sns.py", line 60, in publish_event
+    response = await self._client.publish(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GenAICHNSIRUSR124\AppData\Roaming\Python\Python312\site-packages\aiobotocore\context.py", line 36, in wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GenAICHNSIRUSR124\AppData\Roaming\Python\Python312\site-packages\aiobotocore\client.py", line 424, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.NotFoundException: An error occurred (NotFound) when calling the Publish operation: Endpoint does not exist
+INFO:     127.0.0.1:62245 - "DELETE /api/v1/consents/482cc4b3-4d23-4c31-aea1-062c7054d912 HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:56805 - "GET /api/v1/consents?page=1&page_size=25 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52557 - "GET /api/v1/consents?page=1&page_size=25 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63470 - "GET /api/v1/consents?page=1&page_size=25 HTTP/1.1" 200 OK

@@ -1,0 +1,30 @@
+replicaCount: 2
+
+image:
+  repository: cms/notification-service
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8002
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 300m
+    memory: 384Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 8
+  targetCPUUtilization: 70
+  targetMemoryUtilization: 80
+
+healthCheck:
+  path: /api/v1/health
+  readyPath: /api/v1/health/ready
+  port: 8002

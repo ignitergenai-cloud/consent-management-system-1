@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "consent-processor"
+version = "0.1.0"
+description = "Consent Management System - Consent Processor Service"
+requires-python = ">=3.12"
+dependencies = [
+    "cms-shared",
+    "fastapi>=0.115",
+    "uvicorn>=0.34",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/consent_processor"]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.24",
+    "pytest-cov>=6.0",
+    "httpx>=0.28",
+]

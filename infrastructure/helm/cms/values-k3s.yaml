@@ -1,0 +1,7 @@
+ingress:
+  className: traefik
+  host: cms.local
+
+floci:
+  persistence:
+    storageClass: local-path

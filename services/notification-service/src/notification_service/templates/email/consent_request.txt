@@ -1,0 +1,20 @@
+{{ company_name }} - Consent Request
+======================================
+
+Hello {{ customer_name }},
+
+We are requesting your consent for the following:
+
+{{ consent_text }}
+
+To GRANT your consent, please visit:
+{{ consent_url }}
+
+To DENY your consent, please visit:
+{{ deny_url }}
+
+This consent request will expire on {{ expires_at }}.
+
+If you did not expect this request, you can safely ignore this email.
+
+(c) {{ company_name }}. All rights reserved.

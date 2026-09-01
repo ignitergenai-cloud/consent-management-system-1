@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-ingress-incident-detector
+  namespace: cms
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: incident-detector
+  policyTypes:
+    - Ingress
+  ingress:
+    - ports:
+        - protocol: TCP
+          port: 8003

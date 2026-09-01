@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aws-config
+  namespace: cms
+data:
+  AWS_ENDPOINT_URL: "http://floci:4566"
+  AWS_REGION: "us-east-1"
+  DYNAMODB_TABLE_NAME: "cms-consents"
+  CONSENT_DOCUMENTS_BUCKET: "cms-consent-documents"
+  FROM_EMAIL: "no-reply@cms.example.com"

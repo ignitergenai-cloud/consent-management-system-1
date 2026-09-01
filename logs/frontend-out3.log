@@ -1,0 +1,12 @@
+
+> cms-frontend@0.1.0 dev
+> vite
+
+
+  VITE v6.4.3  ready in 381 ms
+
+  ➜  Local:   http://localhost:3000/
+  ➜  Network: use --host to expose
+3:46:54 PM [vite] .env changed, restarting server...
+3:46:54 PM [vite] server restarted.
+3:47:06 PM [vite] (client) hmr update /src/pages/DashboardPage.tsx, /src/pages/SettingsPage.tsx, /src/components/analytics/AnalyticsDashboard.tsx, /src/pages/IncidentsPage.tsx, /src/pages/ConsentDetailPage.tsx, /src/pages/ConsentsPage.tsx, /src/components/consents/ConsentForm.tsx

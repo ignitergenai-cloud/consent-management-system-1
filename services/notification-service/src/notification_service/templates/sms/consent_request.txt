@@ -1,0 +1,1 @@
+{{ company_name }}: Hi {{ customer_name }}, please review and provide your consent: {{ consent_url }} Reply STOP to opt out.

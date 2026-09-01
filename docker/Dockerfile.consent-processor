@@ -1,0 +1,15 @@
+FROM python:3.12-slim
+
+WORKDIR /app
+
+# Install shared library first
+COPY services/shared /app/services/shared
+RUN pip install --no-cache-dir /app/services/shared
+
+# Install service
+COPY services/consent-processor /app/services/consent-processor
+RUN pip install --no-cache-dir /app/services/consent-processor
+
+EXPOSE 8001
+
+CMD ["uvicorn", "consent_processor.main:app", "--host", "0.0.0.0", "--port", "8001"]

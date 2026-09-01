@@ -1,0 +1,539 @@
+Error:   Failed to scan for dependencies from entries:
+  C:/Project/consent-management-system/frontend/index.html
+
+  [31mX [41;31m[[41;97mERROR[41;31m][0m [1mNo matching export in "src/components/common/LoadingSpinner.tsx" for import "default"[0m
+
+    src/components/analytics/AnalyticsDashboard.tsx:6:7:
+[37m      6 │ import [32mLoadingSpinner[37m from '../common/LoadingSpinner';
+        ╵        [32m~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNo matching export in "src/components/common/ErrorAlert.tsx" for import "default"[0m
+
+    src/components/analytics/AnalyticsDashboard.tsx:7:7:
+[37m      7 │ import [32mErrorAlert[37m from '../common/ErrorAlert';
+        ╵        [32m~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNo matching export in "src/utils/constants.ts" for import "CONSENT_STATUSES"[0m
+
+    src/components/consents/ConsentFilters.tsx:3:9:
+[37m      3 │ import { [32mCONSENT_STATUSES[37m, CONSENT_CHANNELS } from '../../utils/con...
+        ╵          [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNo matching export in "src/utils/constants.ts" for import "CONSENT_CHANNELS"[0m
+
+    src/components/consents/ConsentFilters.tsx:3:27:
+[37m      3 │ import { CONSENT_STATUSES, [32mCONSENT_CHANNELS[37m } from '../../utils/con...
+        ╵                            [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNo matching export in "src/utils/constants.ts" for import "CONSENT_TYPES"[0m
+
+    src/components/consents/ConsentForm.tsx:19:9:
+[37m      19 │ import { [32mCONSENT_TYPES[37m } from '../../utils/constants';
+         ╵          [32m~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNo matching export in "src/utils/formatters.ts" for import "truncateId"[0m
+
+    src/components/consents/ConsentTable.tsx:5:25:
+[37m      5 │ import { formatDateTime, [32mtruncateId[37m } from '../../utils/formatters';
+        ╵                          [32m~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNo matching export in "src/components/common/EmptyState.tsx" for import "default"[0m
+
+    src/components/incidents/IncidentList.tsx:17:7:
+[37m      17 │ import [32mEmptyState[37m from '../common/EmptyState';
+         ╵        [32m~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNo matching export in "src/components/analytics/AnalyticsDashboard.tsx" for import "AnalyticsDashboard"[0m
+
+    src/pages/AnalyticsPage.tsx:4:9:
+[37m      4 │ import { [32mAnalyticsDashboard[37m } from '../components/analytics/Analyti...
+        ╵          [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNo matching export in "src/components/analytics/KPICards.tsx" for import "KPICards"[0m
+
+    src/pages/DashboardPage.tsx:25:9:
+[37m      25 │ import { [32mKPICards[37m } from '../components/analytics/KPICards';
+         ╵          [32m~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNo matching export in "src/components/incidents/IncidentBanner.tsx" for import "IncidentBanner"[0m
+
+    src/pages/DashboardPage.tsx:26:9:
+[37m      26 │ import { [32mIncidentBanner[37m } from '../components/incidents/IncidentBa...
+         ╵          [32m~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNo matching export in "src/utils/formatters.ts" for import "truncateId"[0m
+
+    src/pages/DashboardPage.tsx:28:9:
+[37m      28 │ import { [32mtruncateId[37m, formatDate } from '../utils/formatters';
+         ╵          [32m~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNo matching export in "src/components/incidents/IncidentBanner.tsx" for import "IncidentBanner"[0m
+
+    src/pages/IncidentsPage.tsx:12:9:
+[37m      12 │ import { [32mIncidentBanner[37m } from '../components/incidents/IncidentBa...
+         ╵          [32m~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNo matching export in "src/components/incidents/IncidentList.tsx" for import "IncidentList"[0m
+
+    src/pages/IncidentsPage.tsx:13:9:
+[37m      13 │ import { [32mIncidentList[37m } from '../components/incidents/IncidentList';
+         ╵          [32m~~~~~~~~~~~~[0m
+
+
+    at failureErrorWithLog (C:\Project\consent-management-system\frontend\node_modules\esbuild\lib\main.js:1467:15)
+    at C:\Project\consent-management-system\frontend\node_modules\esbuild\lib\main.js:926:25
+    at runOnEndCallbacks (C:\Project\consent-management-system\frontend\node_modules\esbuild\lib\main.js:1307:45)
+    at buildResponseToResult (C:\Project\consent-management-system\frontend\node_modules\esbuild\lib\main.js:924:7)
+    at C:\Project\consent-management-system\frontend\node_modules\esbuild\lib\main.js:936:9
+    at new Promise (<anonymous>)
+    at requestCallbacks.on-end (C:\Project\consent-management-system\frontend\node_modules\esbuild\lib\main.js:935:54)
+    at handleRequest (C:\Project\consent-management-system\frontend\node_modules\esbuild\lib\main.js:628:17)
+    at handleIncomingPacket (C:\Project\consent-management-system\frontend\node_modules\esbuild\lib\main.js:653:7)
+    at Socket.readFromStdout (C:\Project\consent-management-system\frontend\node_modules\esbuild\lib\main.js:581:7)
+3:23:48 PM [vite] (client) Pre-transform error: Failed to resolve import "@mui/material/Grid2" from "src/pages/SettingsPage.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/pages/SettingsPage.tsx:5:17
+  20 |  import CardContent from "@mui/material/CardContent";
+  21 |  import Chip from "@mui/material/Chip";
+  22 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  23 |  import List from "@mui/material/List";
+  24 |  import ListItem from "@mui/material/ListItem";
+3:23:48 PM [vite] (client) Pre-transform error: Failed to resolve import "@mui/material/Grid2" from "src/pages/DashboardPage.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/pages/DashboardPage.tsx:7:17
+  22 |  import CardContent from "@mui/material/CardContent";
+  23 |  import CardActions from "@mui/material/CardActions";
+  24 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  25 |  import Stack from "@mui/material/Stack";
+  26 |  import Table from "@mui/material/Table";
+3:23:48 PM [vite] (client) Pre-transform error: Failed to resolve import "@mui/material/Grid2" from "src/components/analytics/KPICards.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/components/analytics/KPICards.tsx:4:17
+  17 |  import Card from "@mui/material/Card";
+  18 |  import CardContent from "@mui/material/CardContent";
+  19 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  20 |  import Typography from "@mui/material/Typography";
+  21 |  import Box from "@mui/material/Box";
+3:23:48 PM [vite] (client) Pre-transform error: Failed to resolve import "@mui/material/Grid2" from "src/components/analytics/AnalyticsDashboard.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/components/analytics/AnalyticsDashboard.tsx:2:17
+  16 |  }
+  17 |  var _s = $RefreshSig$();
+  18 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  19 |  import { useConsentAnalytics } from "../../api/analytics";
+  20 |  import { useIncidents } from "../../api/incidents";
+3:23:48 PM [vite] (client) Pre-transform error: Failed to resolve import "@mui/material/Grid2" from "src/components/analytics/KPICards.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/components/analytics/KPICards.tsx:4:17
+  17 |  import Card from "@mui/material/Card";
+  18 |  import CardContent from "@mui/material/CardContent";
+  19 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  20 |  import Typography from "@mui/material/Typography";
+  21 |  import Box from "@mui/material/Box";
+3:24:11 PM [vite] (client) Pre-transform error: Failed to resolve import "@mui/material/Grid2" from "src/pages/DashboardPage.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/pages/DashboardPage.tsx:7:17
+  22 |  import CardContent from "@mui/material/CardContent";
+  23 |  import CardActions from "@mui/material/CardActions";
+  24 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  25 |  import Stack from "@mui/material/Stack";
+  26 |  import Table from "@mui/material/Table";
+3:24:11 PM [vite] (client) Pre-transform error: Failed to resolve import "@mui/material/Grid2" from "src/pages/SettingsPage.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/pages/SettingsPage.tsx:5:17
+  20 |  import CardContent from "@mui/material/CardContent";
+  21 |  import Chip from "@mui/material/Chip";
+  22 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  23 |  import List from "@mui/material/List";
+  24 |  import ListItem from "@mui/material/ListItem";
+3:24:11 PM [vite] (client) Pre-transform error: Failed to resolve import "@mui/material/Grid2" from "src/components/analytics/AnalyticsDashboard.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/components/analytics/AnalyticsDashboard.tsx:2:17
+  16 |  }
+  17 |  var _s = $RefreshSig$();
+  18 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  19 |  import { useConsentAnalytics } from "../../api/analytics";
+  20 |  import { useIncidents } from "../../api/incidents";
+3:24:11 PM [vite] (client) Pre-transform error: Failed to resolve import "@mui/material/Grid2" from "src/components/analytics/KPICards.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/components/analytics/KPICards.tsx:4:17
+  17 |  import Card from "@mui/material/Card";
+  18 |  import CardContent from "@mui/material/CardContent";
+  19 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  20 |  import Typography from "@mui/material/Typography";
+  21 |  import Box from "@mui/material/Box";
+3:24:11 PM [vite] (client) Pre-transform error: Failed to resolve import "@mui/material/Grid2" from "src/components/analytics/KPICards.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/components/analytics/KPICards.tsx:4:17
+  17 |  import Card from "@mui/material/Card";
+  18 |  import CardContent from "@mui/material/CardContent";
+  19 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  20 |  import Typography from "@mui/material/Typography";
+  21 |  import Box from "@mui/material/Box";
+3:24:29 PM [vite] Internal server error: Failed to resolve import "@mui/material/Grid2" from "src/pages/DashboardPage.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/pages/DashboardPage.tsx:7:17
+  22 |  import CardContent from "@mui/material/CardContent";
+  23 |  import CardActions from "@mui/material/CardActions";
+  24 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  25 |  import Stack from "@mui/material/Stack";
+  26 |  import Table from "@mui/material/Table";
+      at TransformPluginContext._formatLog (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42658:41)
+      at TransformPluginContext.error (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42655:16)
+      at normalizeUrl (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40634:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40753:37
+      at async Promise.all (index 9)
+      at async TransformPluginContext.transform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40680:7)
+      at async EnvironmentPluginContainer.transform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42453:18)
+      at async loadAndTransform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:35845:27)
+      at async viteTransformMiddleware (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:37369:24)
+3:24:29 PM [vite] (client) Pre-transform error: Failed to resolve import "@mui/material/Grid2" from "src/components/analytics/KPICards.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/components/analytics/KPICards.tsx:4:17
+  17 |  import Card from "@mui/material/Card";
+  18 |  import CardContent from "@mui/material/CardContent";
+  19 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  20 |  import Typography from "@mui/material/Typography";
+  21 |  import Box from "@mui/material/Box";
+3:24:29 PM [vite] Internal server error: Failed to resolve import "@mui/material/Grid2" from "src/pages/SettingsPage.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/pages/SettingsPage.tsx:5:17
+  20 |  import CardContent from "@mui/material/CardContent";
+  21 |  import Chip from "@mui/material/Chip";
+  22 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  23 |  import List from "@mui/material/List";
+  24 |  import ListItem from "@mui/material/ListItem";
+      at TransformPluginContext._formatLog (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42658:41)
+      at TransformPluginContext.error (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42655:16)
+      at normalizeUrl (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40634:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40753:37
+      at async Promise.all (index 7)
+      at async TransformPluginContext.transform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40680:7)
+      at async EnvironmentPluginContainer.transform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42453:18)
+      at async loadAndTransform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:35845:27)
+      at async viteTransformMiddleware (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:37369:24)
+3:24:34 PM [vite] Internal server error: Failed to resolve import "@mui/material/Grid2" from "src/pages/DashboardPage.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/pages/DashboardPage.tsx:7:17
+  22 |  import CardContent from "@mui/material/CardContent";
+  23 |  import CardActions from "@mui/material/CardActions";
+  24 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  25 |  import Stack from "@mui/material/Stack";
+  26 |  import Table from "@mui/material/Table";
+      at TransformPluginContext._formatLog (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42658:41)
+      at TransformPluginContext.error (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42655:16)
+      at normalizeUrl (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40634:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40753:37
+      at async Promise.all (index 9)
+      at async TransformPluginContext.transform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40680:7)
+      at async EnvironmentPluginContainer.transform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42453:18)
+      at async loadAndTransform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:35845:27)
+      at async viteTransformMiddleware (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:37369:24)
+3:24:34 PM [vite] Internal server error: Failed to resolve import "@mui/material/Grid2" from "src/pages/SettingsPage.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/pages/SettingsPage.tsx:5:17
+  20 |  import CardContent from "@mui/material/CardContent";
+  21 |  import Chip from "@mui/material/Chip";
+  22 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  23 |  import List from "@mui/material/List";
+  24 |  import ListItem from "@mui/material/ListItem";
+      at TransformPluginContext._formatLog (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42658:41)
+      at TransformPluginContext.error (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42655:16)
+      at normalizeUrl (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40634:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40753:37
+      at async Promise.all (index 7)
+      at async TransformPluginContext.transform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40680:7)
+      at async EnvironmentPluginContainer.transform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42453:18)
+      at async loadAndTransform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:35845:27)
+      at async viteTransformMiddleware (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:37369:24)
+3:24:34 PM [vite] (client) Pre-transform error: Failed to resolve import "@mui/material/Grid2" from "src/components/analytics/KPICards.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/components/analytics/KPICards.tsx:4:17
+  17 |  import Card from "@mui/material/Card";
+  18 |  import CardContent from "@mui/material/CardContent";
+  19 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  20 |  import Typography from "@mui/material/Typography";
+  21 |  import Box from "@mui/material/Box";
+3:24:34 PM [vite] Internal server error: Failed to resolve import "@mui/material/Grid2" from "src/components/analytics/AnalyticsDashboard.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/components/analytics/AnalyticsDashboard.tsx:2:17
+  16 |  }
+  17 |  var _s = $RefreshSig$();
+  18 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  19 |  import { useConsentAnalytics } from "../../api/analytics";
+  20 |  import { useIncidents } from "../../api/incidents";
+      at TransformPluginContext._formatLog (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42658:41)
+      at TransformPluginContext.error (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42655:16)
+      at normalizeUrl (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40634:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40753:37
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40680:7)
+      at async EnvironmentPluginContainer.transform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42453:18)
+      at async loadAndTransform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:35845:27)
+      at async viteTransformMiddleware (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:37369:24)
+3:24:34 PM [vite] (client) Pre-transform error: Failed to resolve import "@mui/material/Grid2" from "src/components/analytics/KPICards.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/components/analytics/KPICards.tsx:4:17
+  17 |  import Card from "@mui/material/Card";
+  18 |  import CardContent from "@mui/material/CardContent";
+  19 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  20 |  import Typography from "@mui/material/Typography";
+  21 |  import Box from "@mui/material/Box";
+3:25:44 PM [vite] (client) Pre-transform error: Failed to resolve import "@mui/material/Grid2" from "src/pages/DashboardPage.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/pages/DashboardPage.tsx:7:17
+  22 |  import CardContent from "@mui/material/CardContent";
+  23 |  import CardActions from "@mui/material/CardActions";
+  24 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  25 |  import Stack from "@mui/material/Stack";
+  26 |  import Table from "@mui/material/Table";
+3:25:44 PM [vite] (client) Pre-transform error: Failed to resolve import "@mui/material/Grid2" from "src/pages/SettingsPage.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/pages/SettingsPage.tsx:5:17
+  20 |  import CardContent from "@mui/material/CardContent";
+  21 |  import Chip from "@mui/material/Chip";
+  22 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  23 |  import List from "@mui/material/List";
+  24 |  import ListItem from "@mui/material/ListItem";
+3:25:44 PM [vite] (client) Pre-transform error: Failed to resolve import "@mui/material/Grid2" from "src/components/analytics/KPICards.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/components/analytics/KPICards.tsx:4:17
+  17 |  import Card from "@mui/material/Card";
+  18 |  import CardContent from "@mui/material/CardContent";
+  19 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  20 |  import Typography from "@mui/material/Typography";
+  21 |  import Box from "@mui/material/Box";
+3:25:44 PM [vite] (client) Pre-transform error: Failed to resolve import "@mui/material/Grid2" from "src/components/analytics/KPICards.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/components/analytics/KPICards.tsx:4:17
+  17 |  import Card from "@mui/material/Card";
+  18 |  import CardContent from "@mui/material/CardContent";
+  19 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  20 |  import Typography from "@mui/material/Typography";
+  21 |  import Box from "@mui/material/Box";
+3:25:44 PM [vite] Internal server error: Failed to resolve import "@mui/material/Grid2" from "src/pages/DashboardPage.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/pages/DashboardPage.tsx:7:17
+  22 |  import CardContent from "@mui/material/CardContent";
+  23 |  import CardActions from "@mui/material/CardActions";
+  24 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  25 |  import Stack from "@mui/material/Stack";
+  26 |  import Table from "@mui/material/Table";
+      at TransformPluginContext._formatLog (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42658:41)
+      at TransformPluginContext.error (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42655:16)
+      at normalizeUrl (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40634:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40753:37
+      at async Promise.all (index 9)
+      at async TransformPluginContext.transform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40680:7)
+      at async EnvironmentPluginContainer.transform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42453:18)
+      at async loadAndTransform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:35845:27)
+      at async viteTransformMiddleware (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:37369:24)
+3:25:44 PM [vite] (client) Pre-transform error: Failed to resolve import "@mui/material/Grid2" from "src/components/analytics/KPICards.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/components/analytics/KPICards.tsx:4:17
+  17 |  import Card from "@mui/material/Card";
+  18 |  import CardContent from "@mui/material/CardContent";
+  19 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  20 |  import Typography from "@mui/material/Typography";
+  21 |  import Box from "@mui/material/Box";
+3:25:44 PM [vite] Internal server error: Failed to resolve import "@mui/material/Grid2" from "src/pages/SettingsPage.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/pages/SettingsPage.tsx:5:17
+  20 |  import CardContent from "@mui/material/CardContent";
+  21 |  import Chip from "@mui/material/Chip";
+  22 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  23 |  import List from "@mui/material/List";
+  24 |  import ListItem from "@mui/material/ListItem";
+      at TransformPluginContext._formatLog (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42658:41)
+      at TransformPluginContext.error (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42655:16)
+      at normalizeUrl (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40634:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40753:37
+      at async Promise.all (index 7)
+      at async TransformPluginContext.transform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40680:7)
+      at async EnvironmentPluginContainer.transform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42453:18)
+      at async loadAndTransform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:35845:27)
+      at async viteTransformMiddleware (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:37369:24)
+3:25:44 PM [vite] (client) Pre-transform error: Failed to resolve import "@mui/material/Grid2" from "src/pages/DashboardPage.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/pages/DashboardPage.tsx:7:17
+  22 |  import CardContent from "@mui/material/CardContent";
+  23 |  import CardActions from "@mui/material/CardActions";
+  24 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  25 |  import Stack from "@mui/material/Stack";
+  26 |  import Table from "@mui/material/Table";
+3:25:44 PM [vite] (client) Pre-transform error: Failed to resolve import "@mui/material/Grid2" from "src/pages/SettingsPage.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/pages/SettingsPage.tsx:5:17
+  20 |  import CardContent from "@mui/material/CardContent";
+  21 |  import Chip from "@mui/material/Chip";
+  22 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  23 |  import List from "@mui/material/List";
+  24 |  import ListItem from "@mui/material/ListItem";
+3:25:44 PM [vite] Internal server error: Failed to resolve import "@mui/material/Grid2" from "src/pages/DashboardPage.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/pages/DashboardPage.tsx:7:17
+  22 |  import CardContent from "@mui/material/CardContent";
+  23 |  import CardActions from "@mui/material/CardActions";
+  24 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  25 |  import Stack from "@mui/material/Stack";
+  26 |  import Table from "@mui/material/Table";
+      at TransformPluginContext._formatLog (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42658:41)
+      at TransformPluginContext.error (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42655:16)
+      at normalizeUrl (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40634:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40753:37
+      at async Promise.all (index 9)
+      at async TransformPluginContext.transform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40680:7)
+      at async EnvironmentPluginContainer.transform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42453:18)
+      at async loadAndTransform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:35845:27)
+      at async viteTransformMiddleware (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:37369:24)
+3:25:44 PM [vite] Internal server error: Failed to resolve import "@mui/material/Grid2" from "src/pages/SettingsPage.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/pages/SettingsPage.tsx:5:17
+  20 |  import CardContent from "@mui/material/CardContent";
+  21 |  import Chip from "@mui/material/Chip";
+  22 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  23 |  import List from "@mui/material/List";
+  24 |  import ListItem from "@mui/material/ListItem";
+      at TransformPluginContext._formatLog (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42658:41)
+      at TransformPluginContext.error (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42655:16)
+      at normalizeUrl (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40634:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40753:37
+      at async Promise.all (index 7)
+      at async TransformPluginContext.transform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40680:7)
+      at async EnvironmentPluginContainer.transform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42453:18)
+      at async loadAndTransform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:35845:27)
+      at async viteTransformMiddleware (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:37369:24)
+3:25:45 PM [vite] (client) Pre-transform error: Failed to resolve import "@mui/material/Grid2" from "src/pages/DashboardPage.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/pages/DashboardPage.tsx:7:17
+  22 |  import CardContent from "@mui/material/CardContent";
+  23 |  import CardActions from "@mui/material/CardActions";
+  24 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  25 |  import Stack from "@mui/material/Stack";
+  26 |  import Table from "@mui/material/Table";
+3:25:45 PM [vite] (client) Pre-transform error: Failed to resolve import "@mui/material/Grid2" from "src/pages/SettingsPage.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/pages/SettingsPage.tsx:5:17
+  20 |  import CardContent from "@mui/material/CardContent";
+  21 |  import Chip from "@mui/material/Chip";
+  22 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  23 |  import List from "@mui/material/List";
+  24 |  import ListItem from "@mui/material/ListItem";
+3:25:45 PM [vite] Internal server error: Failed to resolve import "@mui/material/Grid2" from "src/pages/DashboardPage.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/pages/DashboardPage.tsx:7:17
+  22 |  import CardContent from "@mui/material/CardContent";
+  23 |  import CardActions from "@mui/material/CardActions";
+  24 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  25 |  import Stack from "@mui/material/Stack";
+  26 |  import Table from "@mui/material/Table";
+      at TransformPluginContext._formatLog (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42658:41)
+      at TransformPluginContext.error (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42655:16)
+      at normalizeUrl (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40634:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40753:37
+      at async Promise.all (index 9)
+      at async TransformPluginContext.transform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40680:7)
+      at async EnvironmentPluginContainer.transform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42453:18)
+      at async loadAndTransform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:35845:27)
+      at async viteTransformMiddleware (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:37369:24)
+3:25:45 PM [vite] Internal server error: Failed to resolve import "@mui/material/Grid2" from "src/pages/SettingsPage.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/pages/SettingsPage.tsx:5:17
+  20 |  import CardContent from "@mui/material/CardContent";
+  21 |  import Chip from "@mui/material/Chip";
+  22 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  23 |  import List from "@mui/material/List";
+  24 |  import ListItem from "@mui/material/ListItem";
+      at TransformPluginContext._formatLog (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42658:41)
+      at TransformPluginContext.error (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42655:16)
+      at normalizeUrl (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40634:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40753:37
+      at async Promise.all (index 7)
+      at async TransformPluginContext.transform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40680:7)
+      at async EnvironmentPluginContainer.transform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42453:18)
+      at async loadAndTransform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:35845:27)
+      at async viteTransformMiddleware (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:37369:24)
+3:25:46 PM [vite] (client) Pre-transform error: Failed to resolve import "@mui/material/Grid2" from "src/pages/DashboardPage.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/pages/DashboardPage.tsx:7:17
+  22 |  import CardContent from "@mui/material/CardContent";
+  23 |  import CardActions from "@mui/material/CardActions";
+  24 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  25 |  import Stack from "@mui/material/Stack";
+  26 |  import Table from "@mui/material/Table";
+3:25:46 PM [vite] Internal server error: Failed to resolve import "@mui/material/Grid2" from "src/pages/DashboardPage.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Project/consent-management-system/frontend/src/pages/DashboardPage.tsx:7:17
+  22 |  import CardContent from "@mui/material/CardContent";
+  23 |  import CardActions from "@mui/material/CardActions";
+  24 |  import Grid from "@mui/material/Grid2";
+     |                    ^
+  25 |  import Stack from "@mui/material/Stack";
+  26 |  import Table from "@mui/material/Table";
+      at TransformPluginContext._formatLog (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42658:41)
+      at TransformPluginContext.error (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42655:16)
+      at normalizeUrl (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40634:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40753:37
+      at async Promise.all (index 9)
+      at async TransformPluginContext.transform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40680:7)
+      at async EnvironmentPluginContainer.transform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42453:18)
+      at async loadAndTransform (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:35845:27)
+      at async viteTransformMiddleware (file:///C:/Project/consent-management-system/frontend/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:37369:24)

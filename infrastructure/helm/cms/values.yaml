@@ -1,0 +1,136 @@
+global:
+  aws:
+    endpointUrl: "http://{{ .Release.Name }}-floci:4566"
+    region: "us-east-1"
+    accessKeyId: "test"
+    secretAccessKey: "test"
+  dynamodb:
+    tableName: "cms-consents"
+  namespace: "cms"
+
+consent-api:
+  enabled: true
+  replicaCount: 2
+  image:
+    repository: cms/consent-api
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    port: 8000
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 10
+    targetCPUUtilization: 70
+
+notification-service:
+  enabled: true
+  replicaCount: 2
+  image:
+    repository: cms/notification-service
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    port: 8002
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 300m
+      memory: 384Mi
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 8
+    targetCPUUtilization: 70
+
+consent-processor:
+  enabled: true
+  replicaCount: 2
+  image:
+    repository: cms/consent-processor
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    port: 8001
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 300m
+      memory: 384Mi
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 8
+    targetCPUUtilization: 70
+
+incident-detector:
+  enabled: true
+  replicaCount: 1
+  image:
+    repository: cms/incident-detector
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    port: 8003
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      cpu: 200m
+      memory: 256Mi
+
+incident-bridge:
+  enabled: true
+  replicaCount: 1
+  image:
+    repository: cms/incident-bridge
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    port: 8004
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      cpu: 200m
+      memory: 256Mi
+
+frontend:
+  enabled: true
+  replicaCount: 2
+  image:
+    repository: cms/frontend
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    port: 80
+
+floci:
+  enabled: true
+  replicaCount: 1
+  image:
+    repository: floci/floci
+    tag: latest
+  service:
+    port: 4566
+  persistence:
+    enabled: true
+    size: 1Gi
+
+ingress:
+  enabled: true
+  className: nginx
+  host: cms.local

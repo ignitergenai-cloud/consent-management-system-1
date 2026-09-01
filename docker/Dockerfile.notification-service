@@ -1,0 +1,15 @@
+FROM python:3.12-slim
+
+WORKDIR /app
+
+# Install shared library first
+COPY services/shared /app/services/shared
+RUN pip install --no-cache-dir /app/services/shared
+
+# Install service
+COPY services/notification-service /app/services/notification-service
+RUN pip install --no-cache-dir /app/services/notification-service
+
+EXPOSE 8002
+
+CMD ["uvicorn", "notification_service.main:app", "--host", "0.0.0.0", "--port", "8002"]

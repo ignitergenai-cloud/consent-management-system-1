@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "floci.fullname" . }}
+  labels:
+    {{- include "floci.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "floci.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "floci.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: {{ .Values.service.port }}
+          env:
+            - name: FLOCI_DEFAULT_REGION
+              value: {{ .Values.global.aws.region | quote }}
+          volumeMounts:
+            - name: floci-data
+              mountPath: /data
+            - name: docker-sock
+              mountPath: /var/run/docker.sock
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          livenessProbe:
+            httpGet:
+              path: /_localstack/health
+              port: {{ .Values.service.port }}
+            initialDelaySeconds: 30
+            periodSeconds: 30
+      volumes:
+        - name: floci-data
+          {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ include "floci.fullname" . }}-data
+          {{- else }}
+          emptyDir: {}
+          {{- end }}
+        - name: docker-sock
+          hostPath:
+            path: /var/run/docker.sock

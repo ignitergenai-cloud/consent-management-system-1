@@ -1,0 +1,19 @@
+replicaCount: 1
+
+image:
+  repository: floci/floci
+  tag: latest
+
+service:
+  type: ClusterIP
+  port: 4566
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+persistence:
+  enabled: true
+  size: 1Gi
+  storageClass: ""
