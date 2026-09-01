@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import asyncio
 import json
 import time
 import traceback
@@ -200,12 +201,7 @@ class ObservabilityMiddleware(BaseHTTPMiddleware):
             # Remove None values to keep logs clean
             record = {k: v for k, v in record.items() if v is not None}
 
-            import threading
-            threading.Thread(
-                target=_send_to_newrelic,
-                args=(cfg.newrelic_license_key, [record]),
-                daemon=True,
-            ).start()
+            await asyncio.to_thread(_send_to_newrelic, cfg.newrelic_license_key, [record])
         except Exception:
             pass
 

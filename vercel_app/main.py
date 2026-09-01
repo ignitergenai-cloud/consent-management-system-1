@@ -204,15 +204,14 @@ async def create_consent(body: CreateConsentRequest, request: Request):
             endpoint="POST /api/v1/consents",
             error=error_msg,
         )
-        import threading, traceback
+        import asyncio
         ui_page = request.headers.get("x-ui-page") or None
         ui_action = request.headers.get("x-ui-action") or None
         ui_route = request.headers.get("x-ui-route") or None
-        threading.Thread(
-            target=fire_pd_incident,
-            args=(cfg, "cms-unified", "/api/v1/consents", error_msg, "chaos_mode=True", ui_page, ui_action, ui_route),
-            daemon=True,
-        ).start()
+        await asyncio.to_thread(
+            fire_pd_incident,
+            cfg, "cms-unified", "/api/v1/consents", error_msg, "chaos_mode=True", ui_page, ui_action, ui_route,
+        )
         raise HTTPException(500, f"{error_msg}. All consent creation requests are failing.")
 
     if body.channel == "EMAIL" and not body.customer_email:
