@@ -309,6 +309,31 @@ async def update_consent(consent_id: str, updates: dict[str, Any], request: Requ
     return _row_to_consent(rows[0])
 
 
+@app.post("/api/v1/consents/{consent_id}/revoke", response_model=ConsentRecord)
+async def revoke_consent(consent_id: str, request: Request):
+    db = _db(request)
+    now = _now_iso()
+    rows = await db.update(
+        "consents",
+        {"status": "REVOKED", "updated_at": now},
+        consent_id=f"eq.{consent_id}",
+    )
+    if not rows:
+        raise HTTPException(404, f"Consent {consent_id} not found")
+    await db.insert("consent_history", {
+        "consent_id": consent_id,
+        "action": "REVOKED",
+        "details": {"revoked_at": now},
+        "created_at": now,
+    })
+    return _row_to_consent(rows[0])
+
+
+@app.delete("/api/v1/consents/{consent_id}", status_code=200)
+async def revoke_consent_delete(consent_id: str, request: Request):
+    return await revoke_consent(consent_id, request)
+
+
 @app.get("/api/v1/consents/{consent_id}/history", response_model=list[HistoryEntry])
 async def get_consent_history(consent_id: str, request: Request):
     db = _db(request)

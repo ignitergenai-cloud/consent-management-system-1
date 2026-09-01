@@ -46,19 +46,38 @@ def _send_to_newrelic(license_key: str, payload: list[dict]) -> None:
         pass
 
 
-def _fire_pd_incident(cfg: "UnifiedSettings", service: str, path: str, error: str, tb: str) -> None:
+def _fire_pd_incident(
+    cfg: "UnifiedSettings",
+    service: str,
+    path: str,
+    error: str,
+    tb: str,
+    ui_page: str | None = None,
+    ui_action: str | None = None,
+    ui_route: str | None = None,
+) -> None:
     error_key = f"{service}:{path}"
     now = time.time()
     if now - _pd_last_fired.get(error_key, 0) < _PD_RATE_LIMIT_SECONDS:
         return
     _pd_last_fired[error_key] = now
 
+    ui_lines = ""
+    if ui_page or ui_action or ui_route:
+        ui_lines = (
+            f"\nUI Context:\n"
+            f"  Page   : {ui_page or 'unknown'}\n"
+            f"  Action : {ui_action or 'unknown'}\n"
+            f"  Route  : {ui_route or 'unknown'}\n"
+        )
+
     title = f"[P1-CRITICAL] CMS/{service}: 500 on {path} — {error[:80]}"
     details = (
         f"CRITICAL ERROR — Consent Management System\n\n"
         f"Service   : {service}\n"
         f"Endpoint  : {path}\n"
-        f"Error     : {error}\n\n"
+        f"Error     : {error}\n"
+        f"{ui_lines}\n"
         f"Stack Trace:\n{tb}\n\n"
         f"Application : consent-management-system\n"
         f"Environment : production\n"
@@ -119,21 +138,62 @@ class ObservabilityMiddleware(BaseHTTPMiddleware):
 
         try:
             cfg = request.app.state.settings
+
+            # Classify slow requests
+            slow = duration_ms > 2000
+
+            # Client IP (Vercel puts real IP in x-forwarded-for)
+            client_ip = (
+                request.headers.get("x-forwarded-for", "").split(",")[0].strip()
+                or request.headers.get("x-real-ip", "")
+                or (request.client.host if request.client else "unknown")
+            )
+
+            ui_page = request.headers.get("x-ui-page", "") or None
+            ui_action = request.headers.get("x-ui-action", "") or None
+            ui_route = request.headers.get("x-ui-route", "") or None
+
+            # Build human-readable message including UI context when available
+            ui_context = f" | page={ui_page} action={ui_action}" if ui_page or ui_action else ""
             record = {
                 "timestamp": int(time.time() * 1000),
-                "message": f"{request.method} {request.url.path} -> {status} ({duration_ms}ms)",
+                "message": (
+                    f"[{'SLOW ' if slow else ''}{level}] "
+                    f"{request.method} {request.url.path} → {status} "
+                    f"({duration_ms}ms) | {self._service_name} | corr={correlation_id[:8]}"
+                    f"{ui_context}"
+                ),
                 "level": level,
+                # Service identity
                 "application": "consent-management-system",
                 "service": self._service_name,
                 "environment": "production",
-                "method": request.method,
-                "path": request.url.path,
-                "status_code": status,
+                # Request details
+                "http.method": request.method,
+                "http.path": request.url.path,
+                "http.query": request.url.query or None,
+                "http.host": request.headers.get("host", ""),
+                "http.user_agent": request.headers.get("user-agent", ""),
+                "http.referer": request.headers.get("referer", "") or None,
+                "http.content_type": request.headers.get("content-type", "") or None,
+                "http.content_length": request.headers.get("content-length", "") or None,
+                "http.client_ip": client_ip,
+                # Response details
+                "http.status_code": status,
+                "http.status_class": f"{status // 100}xx",
+                # Performance
                 "duration_ms": duration_ms,
+                "slow_request": slow,
+                # Tracing
                 "correlation_id": correlation_id,
+                "request_id": str(uuid.uuid4()),
+                # UI context (sent by frontend axios interceptor)
+                "ui.page": ui_page,
+                "ui.action": ui_action,
+                "ui.route": ui_route,
             }
-            if request.url.query:
-                record["query"] = request.url.query
+            # Remove None values to keep logs clean
+            record = {k: v for k, v in record.items() if v is not None}
 
             import threading
             threading.Thread(
@@ -154,14 +214,23 @@ def register_exception_handlers(app, service_name: str = "cms-unified") -> None:
     @app.exception_handler(Exception)
     async def general_exception_handler(request: Request, exc: Exception) -> JSONResponse:
         tb = traceback.format_exc()
-        logger.exception("unhandled_exception", error=str(exc), path=request.url.path)
+        ui_page = request.headers.get("x-ui-page") or None
+        ui_action = request.headers.get("x-ui-action") or None
+        ui_route = request.headers.get("x-ui-route") or None
+        logger.exception(
+            "unhandled_exception",
+            error=str(exc),
+            path=request.url.path,
+            ui_page=ui_page,
+            ui_action=ui_action,
+        )
 
         try:
             cfg = request.app.state.settings
             import threading
             threading.Thread(
                 target=_fire_pd_incident,
-                args=(cfg, service_name, request.url.path, str(exc), tb),
+                args=(cfg, service_name, request.url.path, str(exc), tb, ui_page, ui_action, ui_route),
                 daemon=True,
             ).start()
         except Exception:

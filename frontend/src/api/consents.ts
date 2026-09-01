@@ -43,7 +43,7 @@ export const consentsApi = {
   },
 
   revoke: async (id: string): Promise<ConsentRecord> => {
-    const response = await apiClient.delete<ConsentRecord>(`/api/v1/consents/${id}`);
+    const response = await apiClient.post<ConsentRecord>(`/api/v1/consents/${id}/revoke`);
     return response.data;
   },
 
