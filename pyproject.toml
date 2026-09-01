@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=75.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cms-unified"
+version = "0.1.0"
+description = "Consent Management System — Unified Vercel Serverless Deployment"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.34.0",
+    "httpx>=0.28",
+    "pydantic>=2.0",
+    "pydantic-settings>=2.0",
+    "structlog>=24.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["vercel_app*"]
