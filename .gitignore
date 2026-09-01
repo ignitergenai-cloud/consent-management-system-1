@@ -22,7 +22,7 @@ frontend/build/
 *.swo
 
 # Environment
-.env
+./.env
 .env.local
 
 # Docker
