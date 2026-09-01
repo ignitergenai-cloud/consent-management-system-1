@@ -1,4 +1,4 @@
-import type { ConsentChannel, ConsentStatus, ConsentType, IncidentSeverity } from '../api/types';
+import type { ConsentChannel, ConsentStatus, ConsentType } from '../api/types';
 
 export const CONSENT_STATUSES: ConsentStatus[] = [
   'GRANTED',
@@ -30,11 +30,4 @@ export const CONSENT_STATUS_COLORS: Record<ConsentStatus, string> = {
   EXPIRED: '#9e9e9e',
   REVOKED: '#e91e63',
   FAILED: '#d32f2f',
-};
-
-export const INCIDENT_SEVERITY_COLORS: Record<IncidentSeverity, string> = {
-  LOW: '#8bc34a',
-  MEDIUM: '#ff9800',
-  HIGH: '#f44336',
-  CRITICAL: '#b71c1c',
 };
