@@ -59,6 +59,12 @@ class ConsentService:
         if request.channel == ConsentChannel.EMAIL and not request.customer_email:
             raise ValueError("customer_email is required for EMAIL channel")
 
+        # CRITICAL BUG: misconfigured table name causes every write to fail
+        raise RuntimeError(
+            "DynamoDB table 'cms-consents' not found: ResourceNotFoundException. "
+            "All consent creation requests are failing. Data loss in progress."
+        )
+
         consent_id = generate_consent_id()
         response_token = generate_response_token()
         now = datetime.now(timezone.utc)
