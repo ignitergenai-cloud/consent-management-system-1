@@ -18,6 +18,7 @@ from vercel_app.config import UnifiedSettings
 from vercel_app.db import SupabaseDB
 from vercel_app.email import send_email
 from vercel_app.cron_routes import router as cron_router
+from vercel_app.observability import ObservabilityMiddleware, register_exception_handlers
 
 logger = structlog.get_logger()
 
@@ -133,6 +134,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+app.add_middleware(ObservabilityMiddleware, service_name="cms-unified")
+
+register_exception_handlers(app, service_name="cms-unified")
 
 app.include_router(cron_router)
 

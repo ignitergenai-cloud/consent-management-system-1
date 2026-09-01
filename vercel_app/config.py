@@ -21,6 +21,16 @@ class UnifiedSettings(BaseSettings):
     # Chaos engineering
     chaos_mode: bool = False
 
+    # New Relic logging
+    newrelic_license_key: str = "350ed5b6c2fb675958bb75486c57c570679dNRAL"
+
+    # PagerDuty
+    pagerduty_api_token: str = "u+2Kf6xufQUhr1CLJsBw"
+    pagerduty_service_id: str = "PUMAG77"
+    pagerduty_priority_id: str = "P9VA1XZ"
+    pagerduty_escalation_id: str = "P0Z7O6F"
+    pagerduty_from_email: str = "gaurav.chandak@tcs.com"
+
     # Anomaly detection thresholds
     failure_rate_threshold: float = 0.3
 
