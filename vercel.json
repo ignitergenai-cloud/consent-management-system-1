@@ -1,15 +1,15 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "functions": {
-    "app.py": { "maxDuration": 60, "memory": 1024 }
+    "api/index.py": { "maxDuration": 60, "memory": 1024 }
   },
   "rewrites": [
-    { "source": "/(.*)", "destination": "/app.py" }
+    { "source": "/(.*)", "destination": "/api/index" }
   ],
   "crons": [
-    { "path": "/api/cron/process-notifications",    "schedule": "* * * * *"   },
-    { "path": "/api/cron/check-expired-consents",   "schedule": "*/5 * * * *" },
-    { "path": "/api/cron/detect-anomalies",         "schedule": "* * * * *"   },
-    { "path": "/api/cron/cleanup",                  "schedule": "0 * * * *"   }
+    { "path": "/api/cron/process-notifications",  "schedule": "* * * * *"   },
+    { "path": "/api/cron/check-expired-consents", "schedule": "*/5 * * * *" },
+    { "path": "/api/cron/detect-anomalies",       "schedule": "* * * * *"   },
+    { "path": "/api/cron/cleanup",                "schedule": "0 * * * *"   }
   ]
 }
