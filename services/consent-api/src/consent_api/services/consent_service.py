@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import os
 from datetime import datetime, timedelta, timezone
 from typing import Any
 
@@ -55,7 +54,7 @@ class ConsentService:
         (phone for SMS, email for EMAIL).
         """
         # Chaos mode — set CHAOS_MODE=true in .env to simulate a critical outage
-        if os.getenv("CHAOS_MODE", "false").lower() == "true":
+        if self._settings.chaos_mode:
             logger.error(
                 "chaos_mode_triggered",
                 service="consent-api",

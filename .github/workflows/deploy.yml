@@ -16,7 +16,7 @@ jobs:
         uses: astral-sh/setup-uv@v4
 
       - name: Install Vercel CLI
-        run: npm install -g vercel@latest
+        run: npm install -g vercel@39
 
       - name: Deploy CMS Backend
         env:
@@ -35,7 +35,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install Vercel CLI
-        run: npm install -g vercel@latest
+        run: npm install -g vercel@39
 
       - name: Deploy CMS Frontend
         working-directory: frontend

@@ -82,3 +82,6 @@ class Settings(BaseSettings):
     # Service URLs
     consent_api_url: str = "http://localhost:8001"
     notification_service_url: str = "http://localhost:8002"
+
+    # Chaos mode — set to true in .env to simulate a critical outage
+    chaos_mode: bool = False
