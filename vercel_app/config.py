@@ -18,6 +18,9 @@ class UnifiedSettings(BaseSettings):
     # Cron job security
     cron_secret: str = ""
 
+    # Chaos engineering
+    chaos_mode: bool = False
+
     # Anomaly detection thresholds
     failure_rate_threshold: float = 0.3
 

@@ -187,6 +187,15 @@ async def create_consent(body: CreateConsentRequest, request: Request):
     db = _db(request)
     cfg = _settings(request)
 
+    if cfg.chaos_mode:
+        logger.error(
+            "chaos_mode_triggered",
+            service="cms-unified",
+            endpoint="POST /api/v1/consents",
+            error="Supabase table 'consents' not found",
+        )
+        raise HTTPException(500, "Supabase table 'consents' not found. All consent creation requests are failing.")
+
     if body.channel == "EMAIL" and not body.customer_email:
         raise HTTPException(400, "customer_email required for EMAIL channel")
     if body.channel == "SMS" and not body.customer_phone:
