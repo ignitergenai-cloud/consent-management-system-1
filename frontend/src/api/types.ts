@@ -71,35 +71,6 @@ export interface ConsentAnalytics {
   }>;
 }
 
-export type IncidentSeverity = 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
-
-export type IncidentType =
-  | 'DELIVERY_FAILURE'
-  | 'COMPLIANCE_VIOLATION'
-  | 'SYSTEM_ERROR'
-  | 'DATA_BREACH';
-
-export type IncidentStatus =
-  | 'OPEN'
-  | 'ACKNOWLEDGED'
-  | 'INVESTIGATING'
-  | 'RESOLVED'
-  | 'CLOSED';
-
-export interface Incident {
-  id: string;
-  title: string;
-  description: string;
-  severity: IncidentSeverity;
-  type: IncidentType;
-  status: IncidentStatus;
-  detected_at: string;
-  acknowledged_at?: string;
-  resolved_at?: string;
-  affected_customers: number;
-  metadata?: Record<string, unknown>;
-}
-
 export interface NotificationLog {
   id: string;
   consent_id: string;

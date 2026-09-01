@@ -2,7 +2,6 @@ import React from 'react';
 import Grid from '@mui/material/Grid';
 
 import { useConsentAnalytics } from '../../api/analytics';
-import { useIncidents } from '../../api/incidents';
 import { LoadingSpinner } from '../common/LoadingSpinner';
 import { ErrorAlert } from '../common/ErrorAlert';
 import KPICards from './KPICards';
@@ -13,20 +12,10 @@ import StatusBreakdown from './StatusBreakdown';
 const AnalyticsDashboard: React.FC = () => {
   const {
     data: analytics,
-    isLoading: analyticsLoading,
-    error: analyticsError,
-    refetch: refetchAnalytics,
+    isLoading,
+    error,
+    refetch,
   } = useConsentAnalytics();
-
-  const {
-    data: incidentsData,
-    isLoading: incidentsLoading,
-    error: incidentsError,
-    refetch: refetchIncidents,
-  } = useIncidents();
-
-  const isLoading = analyticsLoading || incidentsLoading;
-  const error = analyticsError || incidentsError;
 
   if (isLoading) {
     return <LoadingSpinner message="Loading analytics..." />;
@@ -36,27 +25,16 @@ const AnalyticsDashboard: React.FC = () => {
     return (
       <ErrorAlert
         title="Failed to load analytics"
-        message={
-          error instanceof Error ? error.message : 'An unexpected error occurred'
-        }
-        onRetry={() => {
-          refetchAnalytics();
-          refetchIncidents();
-        }}
+        message={error instanceof Error ? error.message : 'An unexpected error occurred'}
+        onRetry={() => refetch()}
       />
     );
   }
 
-  const incidents = incidentsData?.items ?? [];
-  const activeIncidents = incidents.filter(
-    (incident) =>
-      incident.status === 'OPEN' || incident.status === 'ACKNOWLEDGED'
-  ).length;
-
   return (
     <Grid container spacing={3}>
       <Grid size={12}>
-        <KPICards analytics={analytics} activeIncidents={activeIncidents} />
+        <KPICards analytics={analytics} />
       </Grid>
 
       <Grid size={{ xs: 12, md: 8 }}>

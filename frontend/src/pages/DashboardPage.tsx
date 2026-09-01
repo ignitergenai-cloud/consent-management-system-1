@@ -14,17 +14,13 @@ import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
 import AddIcon from '@mui/icons-material/Add';
 import BarChartIcon from '@mui/icons-material/BarChart';
-import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 
 import { useConsents } from '../api/consents';
 import { useConsentAnalytics } from '../api/analytics';
-import { useIncidents } from '../api/incidents';
-import type { Incident } from '../api/types';
 import { LoadingSpinner } from '../components/common/LoadingSpinner';
 import { ErrorAlert } from '../components/common/ErrorAlert';
 import { PageHeader } from '../components/common/PageHeader';
 import KPICards from '../components/analytics/KPICards';
-import IncidentBanner from '../components/incidents/IncidentBanner';
 import { ConsentStatusChip } from '../components/consents/ConsentStatusChip';
 import { truncateId, formatDate } from '../utils/formatters';
 
@@ -45,15 +41,8 @@ export function DashboardPage() {
     refetch: refetchAnalytics,
   } = useConsentAnalytics();
 
-  const {
-    data: incidents,
-    isLoading: incidentsLoading,
-    error: incidentsError,
-    refetch: refetchIncidents,
-  } = useIncidents();
-
-  const isLoading = consentsLoading && analyticsLoading && incidentsLoading;
-  const criticalError = consentsError && analyticsError && incidentsError;
+  const isLoading = consentsLoading && analyticsLoading;
+  const criticalError = consentsError && analyticsError;
 
   if (isLoading) {
     return <LoadingSpinner message="Loading dashboard..." />;
@@ -67,15 +56,10 @@ export function DashboardPage() {
         onRetry={() => {
           refetchConsents();
           refetchAnalytics();
-          refetchIncidents();
         }}
       />
     );
   }
-
-  const activeIncidents = (incidents?.items ?? []).filter(
-    (i: Incident) => i.status !== 'RESOLVED',
-  );
 
   const recentConsents = consentsData?.items ?? [];
 
@@ -86,14 +70,8 @@ export function DashboardPage() {
         subtitle="Consent Management System Overview"
       />
 
-      {activeIncidents.length > 0 && (
-        <Box sx={{ mb: 3 }}>
-          <IncidentBanner incidents={activeIncidents} />
-        </Box>
-      )}
-
       <Box sx={{ mb: 3 }}>
-        <KPICards analytics={analytics} activeIncidents={activeIncidents.length} />
+        <KPICards analytics={analytics} />
       </Box>
 
       <Grid container spacing={3}>
@@ -181,14 +159,6 @@ export function DashboardPage() {
                   onClick={() => navigate('/analytics')}
                 >
                   View Analytics
-                </Button>
-                <Button
-                  variant="outlined"
-                  startIcon={<WarningAmberIcon />}
-                  fullWidth
-                  onClick={() => navigate('/incidents')}
-                >
-                  Check Incidents
                 </Button>
               </Stack>
             </CardContent>

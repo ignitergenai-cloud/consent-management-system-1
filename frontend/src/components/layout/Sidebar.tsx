@@ -12,7 +12,6 @@ import {
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import BarChartIcon from '@mui/icons-material/BarChart';
-import WarningIcon from '@mui/icons-material/Warning';
 import SettingsIcon from '@mui/icons-material/Settings';
 
 interface SidebarProps {
@@ -25,7 +24,6 @@ const NAV_ITEMS = [
   { label: 'Dashboard', path: '/', icon: <DashboardIcon /> },
   { label: 'Consents', path: '/consents', icon: <AssignmentIcon /> },
   { label: 'Analytics', path: '/analytics', icon: <BarChartIcon /> },
-  { label: 'Incidents', path: '/incidents', icon: <WarningIcon /> },
   { label: 'Settings', path: '/settings', icon: <SettingsIcon /> },
 ];
 

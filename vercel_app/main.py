@@ -146,7 +146,12 @@ def _db(request: Request) -> SupabaseDB:
 
 
 def _settings(request: Request) -> UnifiedSettings:
-    return request.app.state.settings
+    try:
+        return request.app.state.settings
+    except AttributeError:
+        cfg = UnifiedSettings()
+        request.app.state.settings = cfg
+        return cfg
 
 
 def _row_to_consent(row: dict) -> ConsentRecord:

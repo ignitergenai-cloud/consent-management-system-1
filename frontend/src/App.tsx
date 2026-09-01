@@ -7,7 +7,6 @@ import { DashboardPage } from './pages/DashboardPage';
 import { ConsentsPage } from './pages/ConsentsPage';
 import { ConsentDetailPage } from './pages/ConsentDetailPage';
 import { AnalyticsPage } from './pages/AnalyticsPage';
-import { IncidentsPage } from './pages/IncidentsPage';
 import { SettingsPage } from './pages/SettingsPage';
 
 const queryClient = new QueryClient({
@@ -26,7 +25,6 @@ export default function App() {
               <Route path="/consents" element={<ConsentsPage />} />
               <Route path="/consents/:consentId" element={<ConsentDetailPage />} />
               <Route path="/analytics" element={<AnalyticsPage />} />
-              <Route path="/incidents" element={<IncidentsPage />} />
               <Route path="/settings" element={<SettingsPage />} />
             </Route>
           </Routes>

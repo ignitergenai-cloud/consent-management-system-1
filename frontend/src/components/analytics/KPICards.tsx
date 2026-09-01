@@ -7,7 +7,6 @@ import Box from '@mui/material/Box';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import WarningIcon from '@mui/icons-material/Warning';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
@@ -16,10 +15,9 @@ import { formatPercentage } from '../../utils/formatters';
 
 interface KPICardsProps {
   analytics: ConsentAnalytics | undefined;
-  activeIncidents: number;
 }
 
-const KPICards: React.FC<KPICardsProps> = ({ analytics, activeIncidents }) => {
+const KPICards: React.FC<KPICardsProps> = ({ analytics }) => {
   const grantRate = analytics?.grant_rate ?? 0;
 
   const cards = [
@@ -28,7 +26,6 @@ const KPICards: React.FC<KPICardsProps> = ({ analytics, activeIncidents }) => {
       value: String(analytics?.total_consents ?? 0),
       icon: <AssignmentIcon />,
       iconColor: '#2196f3',
-      bgcolor: undefined as string | undefined,
     },
     {
       title: 'Grant Rate',
@@ -36,29 +33,20 @@ const KPICards: React.FC<KPICardsProps> = ({ analytics, activeIncidents }) => {
       icon: <TrendingUpIcon />,
       iconColor: '#4caf50',
       indicator: grantRate > 0.5 ? 'up' : 'down',
-      bgcolor: undefined as string | undefined,
     },
     {
       title: 'Avg Response Time',
       value: `${(analytics?.avg_response_time_hours ?? 0).toFixed(1)}h`,
       icon: <AccessTimeIcon />,
       iconColor: '#ff9800',
-      bgcolor: undefined as string | undefined,
-    },
-    {
-      title: 'Active Incidents',
-      value: String(activeIncidents),
-      icon: <WarningIcon />,
-      iconColor: activeIncidents > 0 ? '#f44336' : '#9e9e9e',
-      bgcolor: activeIncidents > 0 ? 'rgba(244, 67, 54, 0.05)' : undefined,
     },
   ];
 
   return (
     <Grid container spacing={3}>
       {cards.map((card) => (
-        <Grid key={card.title} size={{ xs: 12, sm: 6, md: 3 }}>
-          <Card sx={{ bgcolor: card.bgcolor }}>
+        <Grid key={card.title} size={{ xs: 12, sm: 6, md: 4 }}>
+          <Card>
             <CardContent>
               <Box sx={{ display: 'flex', alignItems: 'flex-start', mb: 1 }}>
                 <Box sx={{ color: card.iconColor, display: 'flex', mr: 1 }}>

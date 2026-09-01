@@ -137,7 +137,12 @@ class ObservabilityMiddleware(BaseHTTPMiddleware):
         level = "ERROR" if status >= 500 else "WARNING" if status >= 400 else "INFO"
 
         try:
-            cfg = request.app.state.settings
+            try:
+                cfg = request.app.state.settings
+            except AttributeError:
+                from vercel_app.config import UnifiedSettings
+                cfg = UnifiedSettings()
+                request.app.state.settings = cfg
 
             # Classify slow requests
             slow = duration_ms > 2000
