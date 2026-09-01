@@ -6,7 +6,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://cms-unified-8fwt6lbv0-ai-igniters.vercel.app/api/:path*"
+      "destination": "https://cms-unified-api-ai-igniters.vercel.app/api/:path*"
     }
   ]
 }
