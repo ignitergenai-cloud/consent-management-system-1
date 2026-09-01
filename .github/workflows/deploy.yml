@@ -16,14 +16,13 @@ jobs:
         run: npm install -g vercel@latest
 
       - name: Deploy CMS Backend
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: prj_Yc4Sn0R7PDAjgfz8FCr1zl9NMF3f
         run: |
-          vercel pull --yes --environment=production
-          vercel build --prod
-          vercel deploy --prebuilt --prod
+          vercel pull --yes --environment=production --token=vcp_3RjYE7oWC1L6uz7dTogHFv8C2cHx5R6eLZASpxFvWYg1SpFrVp2hpZts
+          vercel build --prod --token=vcp_3RjYE7oWC1L6uz7dTogHFv8C2cHx5R6eLZASpxFvWYg1SpFrVp2hpZts
+          vercel deploy --prebuilt --prod --token=vcp_3RjYE7oWC1L6uz7dTogHFv8C2cHx5R6eLZASpxFvWYg1SpFrVp2hpZts
+        env:
+          VERCEL_ORG_ID: team_6a7Nqe3X6zNR256vjg5Vk7Kk
+          VERCEL_PROJECT_ID: prj_Yc4Sn0R7PDAjgfz8FCr1zl9NMF3f
 
   deploy-frontend:
     name: Deploy CMS Frontend
@@ -37,11 +36,10 @@ jobs:
 
       - name: Deploy CMS Frontend
         working-directory: frontend
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: prj_W8CiznS9yE0sfF0ZJ4ye36CDDgJr
         run: |
-          vercel pull --yes --environment=production
-          vercel build --prod
-          vercel deploy --prebuilt --prod
+          vercel pull --yes --environment=production --token=vcp_3RjYE7oWC1L6uz7dTogHFv8C2cHx5R6eLZASpxFvWYg1SpFrVp2hpZts
+          vercel build --prod --token=vcp_3RjYE7oWC1L6uz7dTogHFv8C2cHx5R6eLZASpxFvWYg1SpFrVp2hpZts
+          vercel deploy --prebuilt --prod --token=vcp_3RjYE7oWC1L6uz7dTogHFv8C2cHx5R6eLZASpxFvWYg1SpFrVp2hpZts
+        env:
+          VERCEL_ORG_ID: team_6a7Nqe3X6zNR256vjg5Vk7Kk
+          VERCEL_PROJECT_ID: prj_W8CiznS9yE0sfF0ZJ4ye36CDDgJr
