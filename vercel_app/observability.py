@@ -56,8 +56,9 @@ def fire_pd_incident(
     ui_page: str | None = None,
     ui_action: str | None = None,
     ui_route: str | None = None,
+    incident_type: str = "generic",
 ) -> None:
-    error_key = f"{service}:{path}"
+    error_key = f"{service}:{path}:{incident_type}"
     now = time.time()
     if now - _pd_last_fired.get(error_key, 0) < _PD_RATE_LIMIT_SECONDS:
         return

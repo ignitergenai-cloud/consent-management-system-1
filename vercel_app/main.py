@@ -197,22 +197,52 @@ async def create_consent(body: CreateConsentRequest, request: Request):
     cfg = _settings(request)
 
     if cfg.chaos_mode:
-        error_msg = "Supabase table 'consents' not found"
+        import asyncio, random
+        _CHAOS_SCENARIOS = [
+            {
+                "type": "db_connection",
+                "error": "Supabase connection pool exhausted: max connections reached",
+                "detail": "All database connections are in use. Consent records cannot be written.",
+            },
+            {
+                "type": "email_service",
+                "error": "Resend API unavailable: 503 Service Unavailable",
+                "detail": "Email notification service is down. Consent confirmation emails cannot be sent.",
+            },
+            {
+                "type": "validation_timeout",
+                "error": "Consent validation engine timed out after 30s",
+                "detail": "The downstream compliance validation service is not responding.",
+            },
+            {
+                "type": "compliance_service",
+                "error": "GDPR compliance service unreachable: TLS certificate expired",
+                "detail": "Regulatory compliance checks cannot be performed. All consent creation is blocked.",
+            },
+            {
+                "type": "encryption_failure",
+                "error": "Token signing key unavailable: KMS rotation in progress",
+                "detail": "Consent response tokens cannot be generated. Encryption service is unavailable.",
+            },
+        ]
+        scenario = random.choice(_CHAOS_SCENARIOS)
+        error_msg = scenario["error"]
         logger.error(
             "chaos_mode_triggered",
             service="cms-unified",
             endpoint="POST /api/v1/consents",
+            incident_type=scenario["type"],
             error=error_msg,
         )
-        import asyncio
         ui_page = request.headers.get("x-ui-page") or None
         ui_action = request.headers.get("x-ui-action") or None
         ui_route = request.headers.get("x-ui-route") or None
         await asyncio.to_thread(
             fire_pd_incident,
-            cfg, "cms-unified", "/api/v1/consents", error_msg, "chaos_mode=True", ui_page, ui_action, ui_route,
+            cfg, "cms-unified", "/api/v1/consents", error_msg, "chaos_mode=True",
+            ui_page, ui_action, ui_route, scenario["type"],
         )
-        raise HTTPException(500, f"{error_msg}. All consent creation requests are failing.")
+        raise HTTPException(500, f"{error_msg}. {scenario['detail']}")
 
     if body.channel == "EMAIL" and not body.customer_email:
         raise HTTPException(400, "customer_email required for EMAIL channel")
