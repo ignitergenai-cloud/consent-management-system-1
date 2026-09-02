@@ -209,21 +209,6 @@ _DEMO_USER = {"username": "admin", "password": "admin123", "name": "Admin User",
 async def login(body: LoginRequest, request: Request):
     cfg = _settings(request)
 
-    if cfg.chaos_mode:
-        import asyncio
-        error_msg = "Authentication service unavailable: LDAP connection timeout"
-        logger.error("chaos_mode_triggered", service="cms-unified",
-                     endpoint="POST /api/v1/auth/login", error=error_msg)
-        ui_page   = request.headers.get("x-ui-page")   or None
-        ui_action = request.headers.get("x-ui-action") or None
-        ui_route  = request.headers.get("x-ui-route")  or None
-        await asyncio.to_thread(
-            fire_pd_incident,
-            cfg, "cms-unified", "/api/v1/auth/login", error_msg, "chaos_mode=True",
-            ui_page, ui_action, ui_route, "auth_service_down",
-        )
-        raise HTTPException(500, error_msg)
-
     if body.username != _DEMO_USER["username"] or body.password != _DEMO_USER["password"]:
         raise HTTPException(401, "Invalid username or password")
 
