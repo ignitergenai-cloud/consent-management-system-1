@@ -26,6 +26,17 @@ logger = structlog.get_logger()
 # Pydantic models
 # ──────────────────────────────────────────────────────────────────────
 
+class LoginRequest(BaseModel):
+    username: str
+    password: str
+
+
+class LoginResponse(BaseModel):
+    access_token: str
+    token_type: str = "bearer"
+    user: dict
+
+
 class ConsentRecord(BaseModel):
     consent_id: str
     customer_id: str
@@ -185,6 +196,41 @@ def _row_to_consent(row: dict) -> ConsentRecord:
 async def health():
     return {"status": "ok", "service": "cms-unified", "timestamp": _now_iso()}
 
+
+
+# ──────────────────────────────────────────────────────────────────────
+# Auth
+# ──────────────────────────────────────────────────────────────────────
+
+_DEMO_USER = {"username": "admin", "password": "admin123", "name": "Admin User", "role": "admin"}
+
+
+@app.post("/api/v1/auth/login", response_model=LoginResponse)
+async def login(body: LoginRequest, request: Request):
+    cfg = _settings(request)
+
+    if cfg.chaos_mode:
+        import asyncio
+        error_msg = "Authentication service unavailable: LDAP connection timeout"
+        logger.error("chaos_mode_triggered", service="cms-unified",
+                     endpoint="POST /api/v1/auth/login", error=error_msg)
+        ui_page   = request.headers.get("x-ui-page")   or None
+        ui_action = request.headers.get("x-ui-action") or None
+        ui_route  = request.headers.get("x-ui-route")  or None
+        await asyncio.to_thread(
+            fire_pd_incident,
+            cfg, "cms-unified", "/api/v1/auth/login", error_msg, "chaos_mode=True",
+            ui_page, ui_action, ui_route, "auth_service_down",
+        )
+        raise HTTPException(500, error_msg)
+
+    if body.username != _DEMO_USER["username"] or body.password != _DEMO_USER["password"]:
+        raise HTTPException(401, "Invalid username or password")
+
+    return LoginResponse(
+        access_token=secrets.token_urlsafe(32),
+        user={"username": _DEMO_USER["username"], "name": _DEMO_USER["name"], "role": _DEMO_USER["role"]},
+    )
 
 
 # ──────────────────────────────────────────────────────────────────────
@@ -355,6 +401,23 @@ async def update_consent(consent_id: str, updates: dict[str, Any], request: Requ
 
 @app.post("/api/v1/consents/{consent_id}/revoke", response_model=ConsentRecord)
 async def revoke_consent(consent_id: str, request: Request):
+    cfg = _settings(request)
+
+    if cfg.chaos_mode:
+        import asyncio
+        error_msg = "Audit log service unreachable: consent revocation record cannot be written"
+        logger.error("chaos_mode_triggered", service="cms-unified",
+                     endpoint="POST /api/v1/consents/{id}/revoke", error=error_msg)
+        ui_page   = request.headers.get("x-ui-page")   or None
+        ui_action = request.headers.get("x-ui-action") or None
+        ui_route  = request.headers.get("x-ui-route")  or None
+        await asyncio.to_thread(
+            fire_pd_incident,
+            cfg, "cms-unified", f"/api/v1/consents/{consent_id}/revoke", error_msg, "chaos_mode=True",
+            ui_page, ui_action, ui_route, "audit_log_failure",
+        )
+        raise HTTPException(500, error_msg)
+
     db = _db(request)
     now = _now_iso()
     rows = await db.update(

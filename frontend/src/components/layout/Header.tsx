@@ -1,8 +1,9 @@
 import { useMemo } from 'react';
-import { useLocation } from 'react-router-dom';
-import { AppBar, Box, IconButton, Toolbar, Typography } from '@mui/material';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { AppBar, Box, IconButton, Toolbar, Tooltip, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import NotificationsIcon from '@mui/icons-material/Notifications';
+import LogoutIcon from '@mui/icons-material/Logout';
+import { useAuth } from '../../context/AuthContext';
 
 interface HeaderProps {
   drawerWidth: number;
@@ -17,10 +18,7 @@ const PAGE_NAMES: Record<string, string> = {
 };
 
 function getPageName(pathname: string): string {
-  if (PAGE_NAMES[pathname]) {
-    return PAGE_NAMES[pathname];
-  }
-  // Match nested routes by prefix
+  if (PAGE_NAMES[pathname]) return PAGE_NAMES[pathname];
   const match = Object.entries(PAGE_NAMES).find(
     ([path]) => path !== '/' && pathname.startsWith(path),
   );
@@ -29,7 +27,14 @@ function getPageName(pathname: string): string {
 
 export function Header({ drawerWidth, onMenuToggle }: HeaderProps) {
   const location = useLocation();
+  const navigate  = useNavigate();
+  const { user, logout } = useAuth();
   const pageName = useMemo(() => getPageName(location.pathname), [location.pathname]);
+
+  const handleLogout = () => {
+    logout();
+    void navigate('/login');
+  };
 
   return (
     <AppBar
@@ -64,9 +69,17 @@ export function Header({ drawerWidth, onMenuToggle }: HeaderProps) {
           }}
         />
 
-        <IconButton color="inherit">
-          <NotificationsIcon />
-        </IconButton>
+        {user && (
+          <Typography variant="body2" sx={{ mr: 1, opacity: 0.85 }}>
+            {user.name}
+          </Typography>
+        )}
+
+        <Tooltip title="Logout">
+          <IconButton color="inherit" onClick={handleLogout} aria-label="logout">
+            <LogoutIcon />
+          </IconButton>
+        </Tooltip>
       </Toolbar>
     </AppBar>
   );
