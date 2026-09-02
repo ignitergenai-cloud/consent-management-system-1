@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import asyncio
 import json
+import re
 import time
 import traceback
 import urllib.request
@@ -25,6 +26,39 @@ _NR_LOG_URL = "https://log-api.newrelic.com/log/v1"
 _SKIP_PATHS = {"/api/v1/health"}
 _PD_RATE_LIMIT_SECONDS = 300
 _pd_last_fired: dict[str, float] = {}
+
+_UUID_RE = re.compile(r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}", re.I)
+_TOKEN_RE = re.compile(r"(/respond/)[A-Za-z0-9_\-]{20,}")
+
+
+def _normalize_path(path: str) -> str:
+    """Replace UUIDs and long tokens in paths with placeholders for grouping."""
+    path = _UUID_RE.sub("{id}", path)
+    path = _TOKEN_RE.sub(r"\g<1>{token}", path)
+    return path
+
+
+def _perf_category(duration_ms: float) -> str:
+    if duration_ms < 200:
+        return "fast"
+    if duration_ms < 500:
+        return "normal"
+    if duration_ms < 2000:
+        return "slow"
+    return "very_slow"
+
+
+def _error_category(status: int) -> str | None:
+    if status < 400:
+        return None
+    mapping = {
+        400: "bad_request", 401: "unauthorized", 403: "forbidden",
+        404: "not_found", 405: "method_not_allowed", 409: "conflict",
+        422: "validation_error", 429: "rate_limited",
+        500: "internal_server_error", 502: "bad_gateway",
+        503: "service_unavailable", 504: "gateway_timeout",
+    }
+    return mapping.get(status, "client_error" if status < 500 else "server_error")
 
 correlation_id_var: ContextVar[str] = ContextVar("correlation_id", default="")
 
@@ -146,60 +180,92 @@ class ObservabilityMiddleware(BaseHTTPMiddleware):
                 cfg = UnifiedSettings()
                 request.app.state.settings = cfg
 
-            # Classify slow requests
             slow = duration_ms > 2000
+            perf_cat = _perf_category(duration_ms)
+            error_cat = _error_category(status)
+            endpoint_pattern = _normalize_path(request.url.path)
 
-            # Client IP (Vercel puts real IP in x-forwarded-for)
+            # Client IP — Vercel sets real IP in x-forwarded-for
             client_ip = (
                 request.headers.get("x-forwarded-for", "").split(",")[0].strip()
                 or request.headers.get("x-real-ip", "")
                 or (request.client.host if request.client else "unknown")
             )
 
-            ui_page = request.headers.get("x-ui-page", "") or None
+            # UI context from frontend axios interceptor
+            ui_page   = request.headers.get("x-ui-page", "")   or None
             ui_action = request.headers.get("x-ui-action", "") or None
-            ui_route = request.headers.get("x-ui-route", "") or None
+            ui_route  = request.headers.get("x-ui-route", "")  or None
 
-            # Build human-readable message including UI context when available
+            # Request body size
+            req_size = request.headers.get("content-length", "")
+            req_size_bytes = int(req_size) if req_size.isdigit() else None
+
             ui_context = f" | page={ui_page} action={ui_action}" if ui_page or ui_action else ""
             record = {
                 "timestamp": int(time.time() * 1000),
                 "message": (
-                    f"[{'SLOW ' if slow else ''}{level}] "
-                    f"{request.method} {request.url.path} → {status} "
-                    f"({duration_ms}ms) | {self._service_name} | corr={correlation_id[:8]}"
+                    f"[{perf_cat.upper()} {level}] "
+                    f"{request.method} {endpoint_pattern} → {status} "
+                    f"({duration_ms}ms) | {self._service_name}"
                     f"{ui_context}"
+                    + (f" | ERROR: {error_cat}" if error_cat else "")
                 ),
                 "level": level,
-                # Service identity
+
+                # ── Service identity ────────────────────────────────────
                 "application": "consent-management-system",
                 "service": self._service_name,
                 "environment": "production",
-                # Request details
+                "chaos_mode": cfg.chaos_mode,
+
+                # ── Request ─────────────────────────────────────────────
                 "http.method": request.method,
                 "http.path": request.url.path,
-                "http.query": request.url.query or None,
+                "http.endpoint": endpoint_pattern,
+                "http.query_string": request.url.query or None,
+                "http.full_url": str(request.url),
+                "http.scheme": request.url.scheme,
                 "http.host": request.headers.get("host", ""),
                 "http.user_agent": request.headers.get("user-agent", ""),
                 "http.referer": request.headers.get("referer", "") or None,
+                "http.accept": request.headers.get("accept", "") or None,
                 "http.content_type": request.headers.get("content-type", "") or None,
-                "http.content_length": request.headers.get("content-length", "") or None,
-                "http.client_ip": client_ip,
-                # Response details
+                "http.request_size_bytes": req_size_bytes,
+                "http.has_auth": bool(request.headers.get("authorization")),
+
+                # ── Client / geo ─────────────────────────────────────────
+                "client.ip": client_ip,
+                "client.country": request.headers.get("x-vercel-ip-country") or None,
+                "client.city":    request.headers.get("x-vercel-ip-city")    or None,
+                "client.region":  request.headers.get("x-vercel-ip-region")  or None,
+
+                # ── Response ─────────────────────────────────────────────
                 "http.status_code": status,
                 "http.status_class": f"{status // 100}xx",
-                # Performance
+                "http.error_category": error_cat,
+                "http.response_content_type": response.headers.get("content-type") or None,
+
+                # ── Performance ──────────────────────────────────────────
                 "duration_ms": duration_ms,
-                "slow_request": slow,
-                # Tracing
+                "perf.category": perf_cat,
+                "perf.slow": slow,
+
+                # ── Vercel runtime ───────────────────────────────────────
+                "vercel.request_id":     request.headers.get("x-vercel-id")             or None,
+                "vercel.deployment_url": request.headers.get("x-vercel-deployment-url") or None,
+                "vercel.cache":          request.headers.get("x-vercel-cache")           or None,
+                "vercel.region":         request.headers.get("x-vercel-edge-region")    or None,
+
+                # ── Tracing ──────────────────────────────────────────────
                 "correlation_id": correlation_id,
                 "request_id": str(uuid.uuid4()),
-                # UI context (sent by frontend axios interceptor)
-                "ui.page": ui_page,
+
+                # ── UI context ───────────────────────────────────────────
+                "ui.page":   ui_page,
                 "ui.action": ui_action,
-                "ui.route": ui_route,
+                "ui.route":  ui_route,
             }
-            # Remove None values to keep logs clean
             record = {k: v for k, v in record.items() if v is not None}
 
             await asyncio.to_thread(_send_to_newrelic, cfg.newrelic_license_key, [record])
