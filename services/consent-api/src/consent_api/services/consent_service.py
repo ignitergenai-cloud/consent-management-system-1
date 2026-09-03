@@ -26,7 +26,7 @@ from consent_api.config import ConsentApiSettings
 from consent_api.repositories.consent_repository import ConsentRepository
 
 logger = structlog.get_logger()
-chaos_mode = false
+
 
 class ConsentService:
     """Orchestrates consent business logic between repository and events."""
